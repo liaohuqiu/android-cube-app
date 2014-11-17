@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <in.srain.cube.sample.ui.views.header.ptr.PtrBaseFrameDemo xmlns:app="http://schemas.android.com/apk/res-auto"
+    <in.srain.cube.views.ptr.PtrRotateHeaderFrame xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/ly_ptr_frame"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
@@ -22,5 +22,5 @@
             android:listSelector="@android:color/transparent"
             android:scrollbarStyle="outsideOverlay" />
 
-    </in.srain.cube.sample.ui.views.header.ptr.PtrBaseFrameDemo>
+    </in.srain.cube.views.ptr.PtrRotateHeaderFrame>
 </RelativeLayout>

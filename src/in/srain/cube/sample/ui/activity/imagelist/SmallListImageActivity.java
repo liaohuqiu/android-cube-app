@@ -13,21 +13,22 @@ import in.srain.cube.image.impl.DefaultImageLoadHandler;
 import in.srain.cube.sample.R;
 import in.srain.cube.sample.ui.activity.base.TitleBaseActivity;
 import in.srain.cube.sample.data.Images;
-import in.srain.cube.sample.ui.views.header.ptr.PtrBaseFrameDemo;
 import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.list.ListViewDataAdapter;
 import in.srain.cube.views.list.ViewHolderBase;
 import in.srain.cube.views.list.ViewHolderCreator;
+import in.srain.cube.views.ptr.PtrBaseFrame;
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrRotateHeaderFrame;
 
 import java.util.Arrays;
 
 public class SmallListImageActivity extends TitleBaseActivity {
 
-    private ImageLoader mImageLoader;
     public static final int sSmallImageSize = LocalDisplay.dp2px(100);
-    private ListView mListView;
-
     private static final ImageReuseInfo sSmallImageReuseInfo = Images.sImageReuseInfoManger.create("small_180");
+    private ImageLoader mImageLoader;
+    private ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +54,12 @@ public class SmallListImageActivity extends TitleBaseActivity {
 
         setHeaderTitle("Small List");
 
-        final PtrBaseFrameDemo ptrFrame = (PtrBaseFrameDemo) v.findViewById(R.id.ly_ptr_frame);
+        PtrBaseFrame.DEBUG = true;
+        final PtrRotateHeaderFrame ptrFrame = (PtrRotateHeaderFrame) v.findViewById(R.id.ly_ptr_frame);
         ptrFrame.setKeepHeaderWhenRefresh(true);
-        ptrFrame.setHandler(new PtrBaseFrameDemo.DefaultHandler() {
+        ptrFrame.setPtrHandler(new PtrDefaultHandler() {
             @Override
-            public void onRefresh() {
+            public void onRefreshBegin(PtrBaseFrame frame) {
                 ptrFrame.postDelayed(new Runnable() {
                     @Override
                     public void run() {

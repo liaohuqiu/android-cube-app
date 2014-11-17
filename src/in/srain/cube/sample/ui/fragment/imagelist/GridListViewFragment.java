@@ -18,13 +18,15 @@ import in.srain.cube.sample.R;
 import in.srain.cube.sample.ui.activity.TitleBaseFragment;
 import in.srain.cube.sample.data.DemoRequestData;
 import in.srain.cube.sample.data.Images;
-import in.srain.cube.sample.ui.views.header.ptr.PtrBaseFrameDemo;
 import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.IScrollHeaderFrameHandler;
 import in.srain.cube.views.ScrollHeaderFrame;
 import in.srain.cube.views.list.ListViewDataAdapter;
 import in.srain.cube.views.list.ViewHolderBase;
 import in.srain.cube.views.list.ViewHolderCreator;
+import in.srain.cube.views.ptr.PtrBaseFrame;
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrRotateHeaderFrame;
 
 public class GridListViewFragment extends TitleBaseFragment {
 
@@ -50,11 +52,11 @@ public class GridListViewFragment extends TitleBaseFragment {
         gridListView.setAdapter(adapter);
         setHeaderTitle("Grid");
 
-        final PtrBaseFrameDemo ptrFrame = (PtrBaseFrameDemo) v.findViewById(R.id.ly_ptr_frame);
+        final PtrRotateHeaderFrame ptrFrame = (PtrRotateHeaderFrame) v.findViewById(R.id.ly_ptr_frame);
         ptrFrame.setKeepHeaderWhenRefresh(true);
-        ptrFrame.setHandler(new PtrBaseFrameDemo.DefaultHandler() {
+        ptrFrame.setPtrHandler(new PtrDefaultHandler() {
             @Override
-            public void onRefresh() {
+            public void onRefreshBegin(PtrBaseFrame frame) {
                 DemoRequestData.getImageList(false, new DemoRequestData.ImageListDataHandler() {
 
                     public void onData(JsonData data, CacheAbleRequest.ResultType type, boolean outOfDate) {
@@ -76,7 +78,8 @@ public class GridListViewFragment extends TitleBaseFragment {
                 ptrFrame.doRefresh();
             }
         }, 150);
-        ScrollHeaderFrame frame = (ScrollHeaderFrame) container.findViewById(R.id.scroll_header_frame);
+        /*
+        ScrollHeaderFrame frame = (ScrollHeaderFrame) container.findViewById(R.id.fragment_scroll_header_frame);
         frame.setHandler(new IScrollHeaderFrameHandler() {
             @Override
             public boolean hasReachTop() {
@@ -86,6 +89,7 @@ public class GridListViewFragment extends TitleBaseFragment {
                 return gridListView.getChildAt(0).getTop() == 0;
             }
         });
+        */
         return v;
     }
 

@@ -1,5 +1,7 @@
 package in.srain.cube.sample.ui.activity;
 
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
 import in.srain.cube.image.CubeImageView;
@@ -7,10 +9,11 @@ import in.srain.cube.image.ImageLoader;
 import in.srain.cube.sample.R;
 import in.srain.cube.sample.ui.activity.base.TitleBaseActivity;
 import in.srain.cube.views.ptr.PtrBaseFrame;
+import in.srain.cube.views.ptr.PtrHandler;
 import in.srain.cube.views.ptr.header.StoreHouseHeader;
 import in.srain.cube.util.CLog;
 import in.srain.cube.util.Debug;
-import in.srain.cube.views.ptr.PtrHandler;
+import in.srain.cube.views.ptr.PtrUIHandler;
 
 public class PtrStoreHouseHeaderActivity extends TitleBaseActivity {
 
@@ -21,25 +24,26 @@ public class PtrStoreHouseHeaderActivity extends TitleBaseActivity {
 
         setHeaderTitle("Storehouse");
 
+        Resources res = getResources();
+        TypedArray colors = res.obtainTypedArray(R.array.path);
+
         CubeImageView imageView = (CubeImageView) findViewById(R.id.store_house_ptr_image);
         ImageLoader imageLoader = ImageLoader.createDefault(this);
         String pic = "http://img5.duitang.com/uploads/item/201406/28/20140628122218_fLQyP.thumb.jpeg";
         imageView.loadImage(imageLoader, pic);
 
         Debug.DEBUG_PTR_FRAME = true;
-        final PtrBaseFrame frame = (PtrBaseFrame) findViewById(R.id.ly_ptr_frame);
+        final PtrBaseFrame frame = (PtrBaseFrame) findViewById(R.id.store_house_ptr_frame);
         final StoreHouseHeader houseHeader = (StoreHouseHeader) findViewById(R.id.store_house_ptr_header);
         frame.setPtrHandler(new PtrHandler() {
-
             @Override
             public boolean checkCanDoRefresh(PtrBaseFrame frame, View content, View header) {
                 return true;
             }
 
             @Override
-            public void onRefresh() {
-                houseHeader.beginLoading();
-                CLog.d("ptr-test", "onRefresh");
+            public void onRefreshBegin(final PtrBaseFrame frame) {
+                CLog.d("ptr-test", "onRefreshBegin");
                 frame.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -47,41 +51,42 @@ public class PtrStoreHouseHeaderActivity extends TitleBaseActivity {
                     }
                 }, 4000);
             }
-
+        });
+        frame.setPtrUIHandler(new PtrUIHandler() {
             @Override
-            public void onBackToTop() {
-                CLog.d("ptr-test", "onBackToTop");
+            public void onUIRefreshBegin() {
+                houseHeader.beginLoading();
+            }
+
+            /**
+             * when user release
+             *
+             * @param isLoading   is in refreshing
+             * @param crossRefreshLine the position when released has crossing the refresh heigh
+             */
+            @Override
+            public void onUIRelease(boolean isLoading, boolean crossRefreshLine) {
+
             }
 
             @Override
-            public void onRelease() {
-                CLog.d("ptr-test", "onRelease");
+            public void onUIScrollBackToTop(boolean isLoading) {
 
             }
 
             @Override
-            public void onRefreshComplete() {
+            public void onUIRefreshComplete(boolean inUnderTouch) {
                 CLog.d("ptr-test", "onRefreshComplete");
                 houseHeader.loadFinish();
             }
 
             @Override
-            public void crossRotateLineFromTop(boolean isInTouching) {
-                CLog.d("ptr-test", "crossRotateLineFromTop");
-            }
-
-            @Override
-            public void onPercentageChange(int oldPosition, int newPosition, float oldPercent, float newPercent) {
-                float f = newPosition * 1f / houseHeader.getMeasuredHeight();
+            public void onUIPositionChange(boolean isUnderTouch, boolean isLoading, int oldPosition, int currentPosition, float oldPercent, float currentPercent) {
+                float f = currentPosition * 1f / houseHeader.getMeasuredHeight();
                 if (f > 1) f = 1;
-                // CLog.d("ptr-test", "onPercentageChange: %s %s", newPosition, houseHeader.getMeasuredHeight(), houseHeader.getHeight());
+                // CLog.d("ptr-test", "onPositionChange: %s %s", currentPosition, houseHeader.getMeasuredHeight(), houseHeader.getHeight());
                 houseHeader.setProgress(f);
                 houseHeader.invalidate();
-            }
-
-            @Override
-            public void crossRotateLineFromBottom(boolean isInTouching) {
-                CLog.d("ptr-test", "crossRotateLineFromBottom");
             }
         });
     }

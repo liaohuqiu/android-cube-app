@@ -14,11 +14,13 @@ import in.srain.cube.image.impl.DefaultImageLoadHandler;
 import in.srain.cube.sample.R;
 import in.srain.cube.sample.ui.activity.TitleBaseFragment;
 import in.srain.cube.sample.data.Images;
-import in.srain.cube.sample.ui.views.header.ptr.PtrBaseFrameDemo;
 import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.list.ListViewDataAdapter;
 import in.srain.cube.views.list.ViewHolderBase;
 import in.srain.cube.views.list.ViewHolderCreator;
+import in.srain.cube.views.ptr.PtrBaseFrame;
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrRotateHeaderFrame;
 
 import java.util.Arrays;
 
@@ -52,11 +54,12 @@ public class SmallListViewFragment extends TitleBaseFragment {
 
         setHeaderTitle("Small List");
 
-        final PtrBaseFrameDemo ptrFrame = (PtrBaseFrameDemo) v.findViewById(R.id.ly_ptr_frame);
+        final PtrRotateHeaderFrame ptrFrame = (PtrRotateHeaderFrame) v.findViewById(R.id.ly_ptr_frame);
         ptrFrame.setKeepHeaderWhenRefresh(true);
-        ptrFrame.setHandler(new PtrBaseFrameDemo.DefaultHandler() {
+        ptrFrame.setPtrHandler(new PtrDefaultHandler() {
+
             @Override
-            public void onRefresh() {
+            public void onRefreshBegin(PtrBaseFrame frame) {
                 ptrFrame.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -64,6 +67,7 @@ public class SmallListViewFragment extends TitleBaseFragment {
                     }
                 }, 1000);
             }
+
         });
         return v;
     }
