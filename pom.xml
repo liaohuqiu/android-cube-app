@@ -36,14 +36,14 @@
         <dependency>
             <groupId>in.srain.cube</groupId>
             <artifactId>ultra-ptr</artifactId>
-            <type>jar</type>
-            <version>1.0.1</version>
+            <type>apklib</type>
+            <version>1.0.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>in.srain.cube</groupId>
             <artifactId>cube-sdk</artifactId>
             <type>apklib</type>
-            <version>1.0.38-SNAPSHOT</version>
+            <version>1.0.39-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>in.srain.cube</groupId>
@@ -54,7 +54,7 @@
     </dependencies>
 
     <properties>
-        <android.maven.plugin.version>3.7.0</android.maven.plugin.version>
+        <android.maven.plugin.version>3.8.2</android.maven.plugin.version>
         <android.compile.apilevel>16</android.compile.apilevel>
     </properties>
 
@@ -163,6 +163,7 @@
                     </plugin>
                     <plugin>
                         <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                        <version>3.8.2</version>
                         <artifactId>android-maven-plugin</artifactId>
                         <configuration>
                             <sign>
@@ -172,7 +173,7 @@
                                 <verbose>true</verbose>
                                 <inputApk>${project.build.directory}/${project.artifactId}.apk
                                 </inputApk>
-                                <outputApk>${project.build.directory}/天维网__${maven.build.timestamp}.apk
+                                <outputApk>${project.build.directory}/cube-app__${maven.build.timestamp}.apk
                                 </outputApk>
                             </zipalign>
                             <manifest>

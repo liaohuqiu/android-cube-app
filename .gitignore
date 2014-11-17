@@ -23,6 +23,8 @@ local.properties
 # Eclipse project files
 .classpath
 .project
+.gradle
 
 # Mac os
 .DS_Store
+gen-external-apklibs
