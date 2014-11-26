@@ -3,7 +3,7 @@
 
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@color/base_font" />
+            <solid android:color="@color/cube_demo_base_font_color" />
         </shape>
     </item>
     <item android:top="1dp">

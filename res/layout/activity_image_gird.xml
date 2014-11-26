@@ -8,21 +8,28 @@
         android:id="@+id/ly_ptr_frame"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        app:ptr_content="@+id/ly_image_list_grid">
+        app:ptr_content="@+id/ly_image_list_grid_container">
 
-        <in.srain.cube.views.GridViewWithHeaderAndFooter
-            android:id="@+id/ly_image_list_grid"
-            android:paddingLeft="12dp"
-            android:paddingRight="12dp"
+        <in.srain.cube.demo.ui.list.LoadMoreGridViewContainer
+            android:id="@+id/ly_image_list_grid_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fadingEdge="none"
-            android:focusable="false"
-            android:horizontalSpacing="10dp"
-            android:listSelector="@android:color/transparent"
-            android:numColumns="2"
-            android:scrollbarStyle="outsideOverlay"
-            android:stretchMode="columnWidth" />
+            app:load_more_grid_view="@+id/ly_image_list_grid">
 
+            <in.srain.cube.views.GridViewWithHeaderAndFooter
+                android:id="@+id/ly_image_list_grid"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadingEdge="none"
+                android:focusable="false"
+                android:horizontalSpacing="10dp"
+                android:listSelector="@android:color/transparent"
+                android:numColumns="2"
+                android:scrollbarStyle="outsideOverlay"
+                android:stretchMode="columnWidth" />
+
+        </in.srain.cube.demo.ui.list.LoadMoreGridViewContainer>
     </in.srain.cube.views.ptr.PtrRotateHeaderFrame>
 </RelativeLayout>

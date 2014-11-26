@@ -23,6 +23,6 @@
         android:gravity="left|center_vertical"
         android:layout_marginLeft="15dp"
         android:hint="@null"
-        android:textColor="@color/base_font" />
+        android:textColor="@color/cube_demo_base_font_color" />
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.srain.cube.sample"
+<manifest
+    package="in.srain.cube.demo"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -14,44 +15,34 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".app.CubeDemoApplication"
+        android:name="in.srain.cube.demo.app.CubeDemoApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme.NoTitleBar">
-        <activity android:name=".ui.activity.HomeActivity">
+        android:theme="@style/CubeTheme.NoWindowAniAndNoTitle">
+        <activity android:name="in.srain.cube.demo.base.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.PagerTabIndicatorActivity">
+        <activity android:name="in.srain.cube.demo.ui.activity.PagerTabIndicatorActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.PtrStoreHouseHeaderActivity">
+        <activity android:name="in.srain.cube.demo.ui.activity.imagelist.BigImageListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.BannerActivity">
+        <activity android:name="in.srain.cube.demo.ui.activity.imagelist.GridListImageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.imagelist.BigImageListActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".ui.activity.imagelist.GridListImageActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".ui.activity.imagelist.SmallListImageActivity">
+        <activity android:name="in.srain.cube.demo.ui.activity.imagelist.SmallListImageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

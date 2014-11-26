@@ -1,4 +1,4 @@
-package in.srain.cube.sample.ui.views.header.ptr;
+package in.srain.cube.demo.ui.views.header.ptr;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -8,22 +8,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import in.srain.cube.sample.R;
+import in.srain.cube.demo.R;
 import in.srain.cube.util.LocalDisplay;
-import in.srain.cube.views.ptr.PtrBaseFrame;
+import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 
-public class PtrBaseFrameDemo extends PtrBaseFrame {
+public class PtrBaseFrameDemo extends PtrFrameLayout {
 
     private TextView mTitleTextView;
     private Handler mHandler;
 
-
     public static abstract class DefaultHandler implements Handler {
 
         @Override
-        public boolean canDoRefresh(PtrBaseFrame frame, View content, View header) {
-            return PtrBaseFrame.checkCanScrollUp(frame, content, header);
+        public boolean canDoRefresh(PtrFrameLayout frame, View content, View header) {
+            return PtrFrameLayout.checkCanScrollUp(frame, content, header);
         }
     }
 
@@ -31,7 +30,7 @@ public class PtrBaseFrameDemo extends PtrBaseFrame {
 
         public void onRefresh();
 
-        public boolean canDoRefresh(PtrBaseFrame frame, View content, View header);
+        public boolean canDoRefresh(PtrFrameLayout frame, View content, View header);
     }
 
     public PtrBaseFrameDemo(Context context) {
@@ -101,7 +100,7 @@ public class PtrBaseFrameDemo extends PtrBaseFrame {
              * @param header
              */
             @Override
-            public boolean checkCanDoRefresh(PtrBaseFrame frame, View content, View header) {
+            public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
                 return mHandler.canDoRefresh(frame, content, header);
             }
 

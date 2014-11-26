@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import in.srain.cube.sample.R;
+import in.srain.cube.demo.R;
 
 public class TitleAndValue extends LinearLayout {
 

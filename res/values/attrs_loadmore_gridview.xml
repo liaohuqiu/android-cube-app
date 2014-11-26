@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="LoadMoreGridViewContainer">
+        <attr name="load_more_grid_view" format="reference" />
+    </declare-styleable>
+
+</resources>

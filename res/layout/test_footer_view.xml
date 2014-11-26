@@ -8,7 +8,7 @@
         android:layout_height="100dp"
         android:text="FOOTER"
         android:layout_marginBottom="10dp"
-        android:background="@color/main"
+        android:background="@color/cube_demo_main_color"
         android:gravity="center"
         android:textSize="14dp" />
 </FrameLayout>

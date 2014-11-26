@@ -4,15 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>in.srain</groupId>
-        <artifactId>parent</artifactId>
-        <version>1.1.0</version>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
     </parent>
 
     <groupId>in.srain.cube</groupId>
-    <artifactId>cube-sdk-demo</artifactId>
+    <artifactId>android-cube-app</artifactId>
     <packaging>apk</packaging>
-    <name>CUBE DEMO</name>
+    <name>Android Cube APP</name>
     <version>1.0.13-SNAPSHOT</version>
 
     <dependencies>
@@ -31,7 +31,7 @@
             <groupId>in.srain.cube</groupId>
             <artifactId>clog</artifactId>
             <type>jar</type>
-            <version>1.0.1</version>
+            <version>1.0.2</version>
         </dependency>
         <dependency>
             <groupId>in.srain.cube</groupId>
@@ -43,45 +43,53 @@
             <groupId>in.srain.cube</groupId>
             <artifactId>cube-sdk</artifactId>
             <type>apklib</type>
-            <version>1.0.39-SNAPSHOT</version>
+            <version>1.0.40-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>in.srain.cube</groupId>
             <artifactId>grid-view-with-header-footer</artifactId>
             <type>jar</type>
-            <version>1.0.4</version>
+            <version>1.0.8</version>
         </dependency>
     </dependencies>
 
     <properties>
-        <android.maven.plugin.version>3.8.2</android.maven.plugin.version>
-        <android.compile.apilevel>16</android.compile.apilevel>
+        <android_maven_plugin_version>3.8.2</android_maven_plugin_version>
+        <android_compile_api_level>16</android_compile_api_level>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>oss-central</id>
-            <url>https://oss.sonatype.org/content/repositories/releases/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>oss-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-                <updatePolicy>always</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <sourceDirectory>src/</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <excludes>
+                        <exclude>target/generated-sources/r/*</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <!-- compile plugin -->
+            <plugin>
+                <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                <artifactId>android-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <version>${android_maven_plugin_version}</version>
+                <configuration>
+                    <sdk>
+                        <platform>${android_compile_api_level}</platform>
+                    </sdk>
+                    <sign>
+                        <debug>false</debug>
+                    </sign>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <profiles>
         <!--this profile is used to copy maven dependency jars and source code

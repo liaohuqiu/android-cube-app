@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<in.srain.cube.views.banner.SliderBanner xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_slider_banner"
+    app:slider_banner_pager="@+id/home_slider_banner_pager"
+    app:slider_banner_indicator="@+id/home_slider_banner_indicator"
+    android:layout_alignParentTop="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/home_slider_banner_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <in.srain.cube.views.DotView
+        android:id="@+id/home_slider_banner_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        app:dot_radius="4dp"
+        app:dot_selected_color="0xffffffff"
+        app:dot_span="8dp"
+        app:dot_unselected_color="0x80ffffff" />
+</in.srain.cube.views.banner.SliderBanner>
+
