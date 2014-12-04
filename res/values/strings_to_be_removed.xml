@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">skykiwi</string>
     <string name="title_home">我的首页</string>
 
     <string name="search_footer_loading">商品正在加载中哦，请耐心等待一下吧~</string>

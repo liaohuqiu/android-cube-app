@@ -14,7 +14,7 @@ import in.srain.cube.views.list.ViewHolderBase;
 import in.srain.cube.views.list.ViewHolderCreator;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
-import in.srain.cube.views.ptr.PtrRotateHeaderFrame;
+import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 
 import java.util.ArrayList;
 
@@ -49,7 +49,7 @@ public final class TestFragment extends Fragment {
         listViewDataAdapter.getDataList().addAll(mStringList);
         listViewDataAdapter.notifyDataSetChanged();
 
-        final PtrRotateHeaderFrame frame = (PtrRotateHeaderFrame) view.findViewById(R.id.frame_frg_pager_tab);
+        final PtrClassicFrameLayout frame = (PtrClassicFrameLayout) view.findViewById(R.id.frame_frg_pager_tab);
         frame.setPtrHandler(new PtrDefaultHandler() {
             @Override
             public void onRefreshBegin(final PtrFrameLayout frame) {

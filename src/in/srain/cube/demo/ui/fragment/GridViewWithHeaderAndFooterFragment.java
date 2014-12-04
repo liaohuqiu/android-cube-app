@@ -1,49 +1,48 @@
-package in.srain.cube.demo.ui.activity.imagelist;
+package in.srain.cube.demo.ui.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.*;
-import android.widget.ImageView.ScaleType;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import in.srain.cube.demo.R;
+import in.srain.cube.demo.data.DemoRequestData;
+import in.srain.cube.demo.data.Images;
 import in.srain.cube.image.CubeImageView;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.image.ImageReuseInfo;
+import in.srain.cube.mints.base.TitleBaseFragment;
 import in.srain.cube.request.CacheAbleRequest;
 import in.srain.cube.request.JsonData;
-import in.srain.cube.demo.R;
-import in.srain.cube.mints.base.TitleBaseActivity;
-import in.srain.cube.demo.data.DemoRequestData;
-import in.srain.cube.demo.data.Images;
 import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.GridViewWithHeaderAndFooter;
 import in.srain.cube.views.list.ListViewDataAdapter;
 import in.srain.cube.views.list.ViewHolderBase;
 import in.srain.cube.views.list.ViewHolderCreator;
-import in.srain.cube.views.ptr.PtrFrameLayout;
+import in.srain.cube.views.ptr.PtrClassicFrameLayout;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
-import in.srain.cube.views.ptr.PtrRotateHeaderFrame;
+import in.srain.cube.views.ptr.PtrFrameLayout;
 
-public class GridListImageActivity extends TitleBaseActivity {
+public class GridViewWithHeaderAndFooterFragment extends TitleBaseFragment {
 
     private static final int sGirdImageSize = (LocalDisplay.SCREEN_WIDTH_PIXELS - LocalDisplay.dp2px(12 + 12 + 10)) / 2;
+    private static final ImageReuseInfo sGridImageReuseInfo = Images.sImageReuseInfoManger.create("big_360");
     private ImageLoader mImageLoader;
 
-    private static final ImageReuseInfo sGridImageReuseInfo = Images.sImageReuseInfoManger.create("big_360");
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        mImageLoader = ImageLoaderFactory.create(this);
-        setContentView(R.layout.activity_image_gird);
-        final View v = mContentContainer;
+        setHeaderTitle(R.string.cube_demo_load_big_image_in_activity);
 
-        final GridViewWithHeaderAndFooter gridView = (GridViewWithHeaderAndFooter) v.findViewById(R.id.ly_image_list_grid);
+        mImageLoader = ImageLoaderFactory.create(getContext());
+        View view = inflater.inflate(R.layout.fragment_grid_view_with_header_and_footer, null);
 
-        LayoutInflater layoutInflater = LayoutInflater.from(this);
-        View headerView = layoutInflater.inflate(R.layout.test_header_view, null);
-        View footerView = layoutInflater.inflate(R.layout.test_footer_view, null);
+        final GridViewWithHeaderAndFooter gridView = (GridViewWithHeaderAndFooter) view.findViewById(R.id.ly_image_list_grid);
+
+        View headerView = inflater.inflate(R.layout.grid_view_header, null);
+        View footerView = inflater.inflate(R.layout.grid_view_footer, null);
         gridView.addHeaderView(headerView);
         gridView.addFooterView(footerView);
 
@@ -55,9 +54,8 @@ public class GridListImageActivity extends TitleBaseActivity {
         });
         gridView.setAdapter(adapter);
         gridView.setNumColumns(2);
-        setHeaderTitle("GridViewWithHeaderAndFooter");
 
-        final PtrRotateHeaderFrame ptrFrame = (PtrRotateHeaderFrame) v.findViewById(R.id.ly_ptr_frame);
+        final PtrClassicFrameLayout ptrFrame = (PtrClassicFrameLayout) view.findViewById(R.id.ly_image_list_grid);
         ptrFrame.setKeepHeaderWhenRefresh(true);
         ptrFrame.setPtrHandler(new PtrDefaultHandler() {
             @Override
@@ -65,10 +63,6 @@ public class GridListImageActivity extends TitleBaseActivity {
                 DemoRequestData.getImageList(false, new DemoRequestData.ImageListDataHandler() {
 
                     public void onData(JsonData data, CacheAbleRequest.ResultType type, boolean outOfDate) {
-                        String msg = String.format(
-                                " onData\n result type: %s\n out of date: %s\n time: %s",
-                                type, outOfDate, data.optJson("data").optString("time"));
-                        Toast.makeText(GridListImageActivity.this, msg, 1).show();
                         adapter.getDataList().clear();
                         adapter.getDataList().addAll(data.optJson("data").optJson("list").toArrayList());
                         adapter.notifyDataSetChanged();
@@ -85,9 +79,10 @@ public class GridListImageActivity extends TitleBaseActivity {
         ptrFrame.postDelayed(new Runnable() {
             @Override
             public void run() {
-                ptrFrame.doRefresh();
+                ptrFrame.autoRefresh();
             }
         }, 150);
+        return view;
     }
 
     private class ViewHolder extends ViewHolderBase<JsonData> {
@@ -96,9 +91,9 @@ public class GridListImageActivity extends TitleBaseActivity {
 
         @Override
         public View createView(LayoutInflater inflater) {
-            View view = inflater.inflate(R.layout.item_image_list_grid, null);
-            mImageView = (CubeImageView) view.findViewById(R.id.iv_item_iamge_list_grid);
-            mImageView.setScaleType(ScaleType.CENTER_CROP);
+            View view = inflater.inflate(R.layout.load_middle_image_list_item, null);
+            mImageView = (CubeImageView) view.findViewById(R.id.load_middle_image_list_image_view);
+            mImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
             LinearLayout.LayoutParams lyp = new LinearLayout.LayoutParams(sGirdImageSize, sGirdImageSize);
             mImageView.setLayoutParams(lyp);
@@ -112,3 +107,4 @@ public class GridListImageActivity extends TitleBaseActivity {
         }
     }
 }
+

@@ -13,7 +13,7 @@
     <artifactId>android-cube-app</artifactId>
     <packaging>apk</packaging>
     <name>Android Cube APP</name>
-    <version>1.0.13-SNAPSHOT</version>
+    <version>1.0.1</version>
 
     <dependencies>
         <dependency>
@@ -25,7 +25,7 @@
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>support-v4</artifactId>
-            <version>r18</version>
+            <version>r7</version>
         </dependency>
         <dependency>
             <groupId>in.srain.cube</groupId>
@@ -36,14 +36,26 @@
         <dependency>
             <groupId>in.srain.cube</groupId>
             <artifactId>ultra-ptr</artifactId>
-            <type>apklib</type>
-            <version>1.0.2-SNAPSHOT</version>
+            <type>aar</type>
+            <version>1.0.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>in.srain.cube</groupId>
             <artifactId>cube-sdk</artifactId>
             <type>apklib</type>
-            <version>1.0.40-SNAPSHOT</version>
+            <version>1.0.41-aar-oss-SNAPSHOT</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>in.srain.cube</groupId>
@@ -190,7 +202,7 @@
                             </manifest>
                             <sdk>
                                 <path>${env.ANDROID_HOME}</path>
-                                <platform>${android.compile.apilevel}</platform>
+                                <platform>${android_compile_api_level}</platform>
                             </sdk>
                             <undeployBeforeDeploy>true</undeployBeforeDeploy>
                             <proguard>

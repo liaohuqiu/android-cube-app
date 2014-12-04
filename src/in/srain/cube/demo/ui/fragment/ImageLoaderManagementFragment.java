@@ -9,7 +9,7 @@ import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.demo.R;
 import in.srain.cube.mints.base.TitleBaseFragment;
-import in.srain.cube.sample.ui.views.header.TitleAndValue;
+import in.srain.cube.demo.ui.views.TitleAndValue;
 
 public class ImageLoaderManagementFragment extends TitleBaseFragment {
 

@@ -9,7 +9,7 @@ import in.srain.cube.cache.CacheManager;
 import in.srain.cube.request.RequestCacheManager;
 import in.srain.cube.demo.R;
 import in.srain.cube.mints.base.TitleBaseFragment;
-import in.srain.cube.sample.ui.views.header.TitleAndValue;
+import in.srain.cube.demo.ui.views.TitleAndValue;
 
 public class RequestCacheManagementFragment extends TitleBaseFragment {
 

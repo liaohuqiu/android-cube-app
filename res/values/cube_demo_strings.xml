@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="cube_demo_load_big_image_in_activity">Big size image in activity</string>
-    <string name="cube_demo_load_mid_image_in_activity">Middle size image in activity</string>
-    <string name="cube_demo_load_small_image_in_activity">Small size image in activity</string>
+    <string name="app_name">CUBE SDK</string>
+    <string name="cube_demo_home_title">CUBE APP</string>
 
-    <string name="cube_demo_load_big_image_in_fragment">Big size image in fragment</string>
-    <string name="cube_demo_load_mid_image_in_fragment">Middle size image in fragment</string>
-    <string name="cube_demo_load_small_image_in_fragment">Small size image in fragment</string>
+    <string name="cube_demo_load_big_image_in_activity">Big image in activity</string>
+    <string name="cube_demo_load_mid_image_in_activity">Middle image in activity</string>
+    <string name="cube_demo_load_small_image_in_activity">Small image in activity</string>
+
+    <string name="cube_demo_load_big_image_in_fragment">Big image in fragment</string>
+    <string name="cube_demo_load_middle_image_in_fragment">Middle image in fragment</string>
+    <string name="cube_demo_load_small_image_in_fragment">Small image in fragment</string>
 
     <string name="cube_demo_view_holder_top_class">View Holder as Top Class</string>
     <string name="cube_demo_view_holder_inner_instance_class">View Holder as Inner Instance Class</string>
@@ -16,4 +19,7 @@
     <string name="cube_demo_load_more_list_view">Load More for ListView</string>
     <string name="cube_demo_load_more_grid_view">Load More for GridView</string>
     <string name="cube_demo_grid_view_with_header_and_footer">GridView With Header And Footer</string>
+
+    <string name="cube_demo_block_pre_load_image">Pre Load Image</string>
+    <string name="cube_demo_block_grid_view_with_header_and_footer">GridViewWithHeaderAndFooter</string>
 </resources>

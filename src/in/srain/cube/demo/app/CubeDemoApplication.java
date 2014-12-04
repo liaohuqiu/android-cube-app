@@ -5,9 +5,13 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import in.srain.cube.Cube;
 import in.srain.cube.image.ImageLoaderFactory;
+import in.srain.cube.request.JsonData;
 import in.srain.cube.request.RequestCacheManager;
 import in.srain.cube.demo.image.DemoDuiTangImageResizer;
+import in.srain.cube.request.RequestDefaultHandler;
+import in.srain.cube.request.SimpleRequest;
 import in.srain.cube.util.CLog;
+import in.srain.cube.util.Debug;
 
 public class CubeDemoApplication extends Application {
 
@@ -31,9 +35,9 @@ public class CubeDemoApplication extends Application {
         CLog.d("sample", "Here is a debug message");
         CLog.d("sample", "Here is a debug message with parameters: %d", 1);
         Exception ex = new RuntimeException();
-        CLog.d("sample", "Here is a debug message with parameters: %d", ex);
+        CLog.d("sample", "Here is a debug message with parameters: %s", ex);
 
-        // CLog.DEBUG_IMAGE = true;
+        Debug.DEBUG_IMAGE = true;
         // CLog.DEBUG_CACHE = true;
         // CLog.DEBUG_SCROLL_HEADER_FRAME = true;
         // CLog.DEBUG_PTR_FRAME = true;

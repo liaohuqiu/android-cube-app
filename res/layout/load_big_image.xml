@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#f1f1f1">
 
     <ListView
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:id="@+id/ly_image_list_big"
+        android:id="@+id/load_big_image_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ffffff"
         android:divider="@null"
         android:fadingEdge="none"
         android:listSelector="@android:color/transparent"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
         android:scrollbarStyle="outsideOverlay" />
 
 </RelativeLayout>
