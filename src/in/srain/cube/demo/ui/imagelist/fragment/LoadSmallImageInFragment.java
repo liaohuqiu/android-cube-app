@@ -21,6 +21,7 @@ public class LoadSmallImageInFragment extends DemoTitleBaseFragment {
 
         ImageLoader imageLoader = ImageLoaderFactory.create(getActivity());
         ((DefaultImageLoadHandler) imageLoader.getImageLoadHandler()).setImageRounded(true, 25);
+        ((DefaultImageLoadHandler) imageLoader.getImageLoadHandler()).setImageFadeIn(false);
 
         final View v = inflater.inflate(R.layout.load_small_image, null);
 
