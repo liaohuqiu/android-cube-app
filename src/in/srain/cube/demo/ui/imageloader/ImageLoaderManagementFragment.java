@@ -1,4 +1,4 @@
-package in.srain.cube.demo.ui.fragment;
+package in.srain.cube.demo.ui.imageloader;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,7 +24,7 @@ public class ImageLoaderManagementFragment extends TitleBaseFragment {
 
     @Override
     protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        setHeaderTitle("ImageLoader Management");
+        setHeaderTitle(R.string.cube_demo_image_loader_management);
 
         View view = inflater.inflate(R.layout.fragment_imageloader_management, null);
         mList = (LinearLayout) view.findViewById(R.id.ly_btn_image_loader_management);

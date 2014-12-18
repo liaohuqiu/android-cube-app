@@ -4,22 +4,26 @@
     <string name="app_name">CUBE SDK</string>
     <string name="cube_demo_home_title">CUBE APP</string>
 
+    <string name="cube_demo_block_image_loader">How to Use Image Loader</string>
     <string name="cube_demo_load_big_image_in_activity">Big image in activity</string>
     <string name="cube_demo_load_mid_image_in_activity">Middle image in activity</string>
     <string name="cube_demo_load_small_image_in_activity">Small image in activity</string>
-
     <string name="cube_demo_load_big_image_in_fragment">Big image in fragment</string>
     <string name="cube_demo_load_middle_image_in_fragment">Middle image in fragment</string>
     <string name="cube_demo_load_small_image_in_fragment">Small image in fragment</string>
+    <string name="cube_demo_pre_load_image">Pre Load Image</string>
+    <string name="cube_demo_image_loader_management">Image Loader Management</string>
+    <string name="cube_demo_customized_image_loader">Customized ImageLoader</string>
+    <string name="cube_demo_customized_image_load_handler">Customized ImageLoadHandler</string>
 
+    <string name="cube_demo_view_holder">How to Use ViewHolder</string>
     <string name="cube_demo_view_holder_top_class">View Holder as Top Class</string>
     <string name="cube_demo_view_holder_inner_instance_class">View Holder as Inner Instance Class</string>
     <string name="cube_demo_view_holder_inner_static_class">View Holder as Inner Static Class</string>
 
     <string name="cube_demo_load_more_list_view">Load More for ListView</string>
     <string name="cube_demo_load_more_grid_view">Load More for GridView</string>
-    <string name="cube_demo_grid_view_with_header_and_footer">GridView With Header And Footer</string>
 
-    <string name="cube_demo_block_pre_load_image">Pre Load Image</string>
-    <string name="cube_demo_block_grid_view_with_header_and_footer">GridViewWithHeaderAndFooter</string>
+    <string name="cube_demo_grid_view_with_header_and_footer">GridViewWithHeaderAndFooter</string>
+
 </resources>

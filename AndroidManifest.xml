@@ -32,17 +32,17 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="in.srain.cube.demo.ui.imagelist.activity.LoadBigImageInActivity">
+        <activity android:name="in.srain.cube.demo.ui.imageloader.activity.LoadBigImageInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="in.srain.cube.demo.ui.imagelist.activity.LoadMidImageInActivity">
+        <activity android:name="in.srain.cube.demo.ui.imageloader.activity.LoadMidImageInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
-        <activity android:name="in.srain.cube.demo.ui.imagelist.activity.LoadSmallImageInActivity">
+        <activity android:name="in.srain.cube.demo.ui.imageloader.activity.LoadSmallImageInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

@@ -111,5 +111,5 @@ dependencies {
     compile 'in.srain.cube:clog:1.0.2'
     compile 'in.srain.cube:grid-view-with-header-footer:1.0.8'
     compile 'in.srain.cube:ultra-ptr:1.0.3@aar'
-    compile 'in.srain.cube:cube-sdk:1.0.42@aar'
+    compile 'in.srain.cube:cube-sdk:1.0.43@aar'
 }
