@@ -17,9 +17,10 @@
     <string name="cube_demo_customized_image_load_handler">Customized ImageLoadHandler</string>
 
     <string name="cube_demo_view_holder">How to Use ViewHolder</string>
-    <string name="cube_demo_view_holder_top_class">View Holder as Top Class</string>
-    <string name="cube_demo_view_holder_inner_instance_class">View Holder as Inner Instance Class</string>
-    <string name="cube_demo_view_holder_inner_static_class">View Holder as Inner Static Class</string>
+    <string name="cube_demo_view_holder_top_class">as Top Class</string>
+    <string name="cube_demo_view_holder_static_nested_class">as Static Nested Class</string>
+    <string name="cube_demo_view_holder_inner_instance_no_args_class">as Inner Class no Args</string>
+    <string name="cube_demo_view_holder_inner_instance_with_args_class">as Inner Instance Class with Args</string>
 
     <string name="cube_demo_load_more_list_view">Load More for ListView</string>
     <string name="cube_demo_load_more_grid_view">Load More for GridView</string>

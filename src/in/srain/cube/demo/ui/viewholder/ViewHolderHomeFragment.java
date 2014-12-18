@@ -19,18 +19,26 @@ public class ViewHolderHomeFragment extends DemoBlockMenuFragment {
             }
         }));
 
-        itemInfos.add(newItemInfo(R.string.cube_demo_view_holder_inner_static_class, "#4d90fe", new OnClickListener() {
+        itemInfos.add(newItemInfo(R.string.cube_demo_view_holder_static_nested_class, "#4d90fe", new OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                getContext().pushFragmentToBackStack(NestedStaticClassFragment.class, null);
             }
         }));
 
-        itemInfos.add(newItemInfo(R.string.cube_demo_view_holder_inner_instance_class, "#4d90fe", new OnClickListener() {
+        itemInfos.add(newItemInfo(R.string.cube_demo_view_holder_inner_instance_with_args_class, "#4d90fe", new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                getContext().pushFragmentToBackStack(EnclosingInnerClassFragment.class, null);
+                getContext().pushFragmentToBackStack(InnerInstanceClassWithArgsFragment.class, null);
+            }
+        }));
+        itemInfos.add(newItemInfo(R.string.cube_demo_view_holder_inner_instance_no_args_class, "#4d90fe", new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                getContext().pushFragmentToBackStack(InnerInstanceClassNoArgsFragment.class, null);
             }
         }));
     }

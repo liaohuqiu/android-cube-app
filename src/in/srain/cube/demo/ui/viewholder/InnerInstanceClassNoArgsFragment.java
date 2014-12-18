@@ -9,20 +9,21 @@ import in.srain.cube.image.ImageLoader;
 import in.srain.cube.views.list.ListViewDataAdapter;
 import in.srain.cube.views.list.ViewHolderBase;
 
-public class EnclosingInnerClassFragment extends ViewHolderDemoBaseFragment {
+public class InnerInstanceClassNoArgsFragment extends ViewHolderDemoBaseFragment {
 
-    protected void setupAdapter(ListViewDataAdapter<String> adapter) {
-        adapter.setViewHolderClass(this, ClassInnerInstanceViewHolder.class, mImageLoader);
+    protected void setupViews(ListViewDataAdapter<String> adapter) {
+        setHeaderTitle(R.string.cube_demo_view_holder_inner_instance_no_args_class);
+
+        // no args
+        adapter.setViewHolderClass(this, ClassInnerInstanceViewHolder.class);
     }
 
+    /**
+     * inner class, initiated with no arguments
+     */
     private class ClassInnerInstanceViewHolder extends ViewHolderBase<String> {
 
-        private ImageLoader mImageLoader;
         private CubeImageView mImageView;
-
-        public ClassInnerInstanceViewHolder(ImageLoader imageLoader) {
-            mImageLoader = imageLoader;
-        }
 
         @Override
         public View createView(LayoutInflater inflater) {
@@ -34,7 +35,7 @@ public class EnclosingInnerClassFragment extends ViewHolderDemoBaseFragment {
 
         @Override
         public void showData(int position, String itemData) {
-            mImageView.loadImage(mImageLoader, itemData, sSmallImageReuseInfo);
+            mImageView.loadImage(getImageLoader(), itemData, sSmallImageReuseInfo);
         }
     }
 }
