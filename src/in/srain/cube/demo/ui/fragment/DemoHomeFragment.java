@@ -10,7 +10,11 @@ import android.widget.TextView;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.ui.activity.PagerTabIndicatorActivity;
 import in.srain.cube.demo.ui.imageloader.ImageLoaderHomeFragment;
-import in.srain.cube.demo.ui.viewholder.ViewHolderDemoBaseFragment;
+import in.srain.cube.demo.ui.loadmore.LoadMoreHomeFragment;
+import in.srain.cube.demo.ui.loadmore.LoadMoreListFragment;
+import in.srain.cube.demo.ui.request.RequestCacheManagementFragment;
+import in.srain.cube.demo.ui.request.RequestDemoFragment;
+import in.srain.cube.demo.ui.request.RequestHomeFragment;
 import in.srain.cube.demo.ui.viewholder.ViewHolderHomeFragment;
 import in.srain.cube.mints.base.MenuItemFragment;
 import in.srain.cube.util.LocalDisplay;
@@ -44,33 +48,34 @@ public class DemoHomeFragment extends MenuItemFragment {
             }
         }));
 
-        itemInfos.add(newItemInfo(R.string.cube_demo_load_more_list_view, "#4d90fe", new OnClickListener() {
+        itemInfos.add(newItemInfo(R.string.cube_demo_slider_banner, "#4d90fe", new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                getContext().pushFragmentToBackStack(LoadMoreListFragment.class, null);
+                getContext().pushFragmentToBackStack(SliderBannerFragment.class, null);
             }
         }));
-        itemInfos.add(newItemInfo(R.string.cube_demo_load_more_grid_view, "#4d90fe", new OnClickListener() {
+
+        itemInfos.add(newItemInfo(R.string.cube_demo_load_more_demo, "#4d90fe", new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                getContext().pushFragmentToBackStack(RequestDemoFragment.class, null);
+                getContext().pushFragmentToBackStack(LoadMoreHomeFragment.class, null);
             }
         }));
+        itemInfos.add(newItemInfo(R.string.cube_demo_request_demo, "#4d90fe", new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                getContext().pushFragmentToBackStack(RequestHomeFragment.class, null);
+            }
+        }));
+
         itemInfos.add(newItemInfo(R.string.cube_demo_grid_view_with_header_and_footer, "#4d90fe", new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                getContext().pushFragmentToBackStack(RequestDemoFragment.class, null);
-            }
-        }));
-
-        itemInfos.add(newItemInfo("API Request", "#4d90fe", new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                getContext().pushFragmentToBackStack(RequestDemoFragment.class, null);
+                getContext().pushFragmentToBackStack(GridViewWithHeaderAndFooterFragment.class, null);
             }
         }));
 
@@ -90,13 +95,6 @@ public class DemoHomeFragment extends MenuItemFragment {
             }
         }));
 
-        itemInfos.add(newItemInfo("RequestCache Management", "#4d90fe", new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                getContext().pushFragmentToBackStack(RequestCacheManagementFragment.class, null);
-            }
-        }));
         itemInfos.add(newItemInfo("Tab", "#4d90fe", new OnClickListener() {
 
             @Override

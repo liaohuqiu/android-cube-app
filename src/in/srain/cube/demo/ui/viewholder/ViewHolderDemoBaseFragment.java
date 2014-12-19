@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.base.DemoTitleBaseFragment;
-import in.srain.cube.demo.data.Images;
+import in.srain.cube.demo.datamodel.Images;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.image.ImageReuseInfo;

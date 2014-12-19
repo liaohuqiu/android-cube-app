@@ -9,7 +9,7 @@ import in.srain.cube.image.ImageLoader;
 import in.srain.cube.util.CLog;
 import in.srain.cube.views.list.ViewHolderBase;
 
-class TopLevelViewHolder extends ViewHolderBase<String> {
+public class TopLevelViewHolder extends ViewHolderBase<String> {
 
     private ImageLoader mImageLoader;
     private CubeImageView mImageView;

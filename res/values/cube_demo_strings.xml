@@ -22,9 +22,15 @@
     <string name="cube_demo_view_holder_inner_instance_no_args_class">as Inner Class no Args</string>
     <string name="cube_demo_view_holder_inner_instance_with_args_class">as Inner Instance Class with Args</string>
 
+    <string name="cube_demo_load_more_demo">Load More for ListView and GridView</string>
     <string name="cube_demo_load_more_list_view">Load More for ListView</string>
     <string name="cube_demo_load_more_grid_view">Load More for GridView</string>
 
     <string name="cube_demo_grid_view_with_header_and_footer">GridViewWithHeaderAndFooter</string>
+    <string name="cube_demo_slider_banner">Slider Banner</string>
+
+    <string name="cube_demo_request_demo">Request and Request Cache</string>
+    <string name="cube_demo_request_simple_api">API Request</string>
+    <string name="cube_demo_request_cache_management">RequestCache Management</string>
 
 </resources>

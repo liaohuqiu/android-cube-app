@@ -1,4 +1,4 @@
-package in.srain.cube.demo.ui.fragment;
+package in.srain.cube.demo.ui.request;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,13 +13,13 @@ import in.srain.cube.request.JsonData;
 import in.srain.cube.request.RequestJsonHandler;
 import in.srain.cube.demo.R;
 import in.srain.cube.mints.base.TitleBaseFragment;
-import in.srain.cube.demo.data.DemoRequestData;
+import in.srain.cube.demo.datamodel.DemoRequestData;
 
 public class RequestDemoFragment extends TitleBaseFragment {
 
     @Override
     protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        setHeaderTitle("Request Demo");
+        setHeaderTitle(R.string.cube_demo_request_simple_api);
         View view = inflater.inflate(R.layout.fragment_request_demo, null);
         view.setOnTouchListener(new OnTouchListener() {
 

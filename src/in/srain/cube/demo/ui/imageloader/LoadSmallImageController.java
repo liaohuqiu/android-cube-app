@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
 import in.srain.cube.demo.R;
-import in.srain.cube.demo.data.Images;
+import in.srain.cube.demo.datamodel.Images;
 import in.srain.cube.image.CubeImageView;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageReuseInfo;
@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 public class LoadSmallImageController {
 
-    private static final ImageReuseInfo sSmallImageReuseInfo = Images.sImageReuseInfoManger.create("small_180");
+    public static final ImageReuseInfo sSmallImageReuseInfo = Images.sImageReuseInfoManger.create("small_180");
     private ImageLoader mImageLoader;
 
     public void takeControlDisplay(ImageLoader imageLoader, ListView listView) {

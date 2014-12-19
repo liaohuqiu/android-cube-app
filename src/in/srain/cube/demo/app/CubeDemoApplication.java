@@ -30,7 +30,10 @@ public class CubeDemoApplication extends Application {
             CLog.setLogLevel(CLog.LEVEL_VERBOSE);
         }
 
+        Debug.DEBUG_CACHE = true;
         Debug.DEBUG_IMAGE = true;
+        Debug.DEBUG_REQUEST = true;
+
         File path1 = Environment.getExternalStoragePublicDirectory("cube/test1/a/b/c");
         ImageLoaderFactory.customizeCache(this, ImageLoaderFactory.getDefaultMemoryCacheSizeInKB(),
                 path1.getAbsolutePath(), ImageLoaderFactory.DEFAULT_FILE_CACHE_SIZE_IN_KB

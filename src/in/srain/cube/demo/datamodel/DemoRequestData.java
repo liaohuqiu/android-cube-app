@@ -1,4 +1,4 @@
-package in.srain.cube.demo.data;
+package in.srain.cube.demo.datamodel;
 
 import in.srain.cube.request.*;
 import in.srain.cube.util.CLog;

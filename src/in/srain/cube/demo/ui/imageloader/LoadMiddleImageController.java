@@ -6,7 +6,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import in.srain.cube.demo.R;
-import in.srain.cube.demo.data.Images;
+import in.srain.cube.demo.datamodel.Images;
 import in.srain.cube.image.CubeImageView;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageReuseInfo;

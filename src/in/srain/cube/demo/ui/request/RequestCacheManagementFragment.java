@@ -1,4 +1,4 @@
-package in.srain.cube.demo.ui.fragment;
+package in.srain.cube.demo.ui.request;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,7 +24,7 @@ public class RequestCacheManagementFragment extends TitleBaseFragment {
 
     @Override
     protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        setHeaderTitle("RequestCache Management");
+        setHeaderTitle(R.string.cube_demo_request_cache_management);
 
         View view = inflater.inflate(R.layout.fragment_request_cache_management, null);
         mList = (LinearLayout) view.findViewById(R.id.ly_btn_request_cache_management);
