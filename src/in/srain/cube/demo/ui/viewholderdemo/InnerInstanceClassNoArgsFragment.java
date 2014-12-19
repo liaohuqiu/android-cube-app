@@ -1,11 +1,11 @@
-package in.srain.cube.demo.ui.viewholder;
+package in.srain.cube.demo.ui.viewholderdemo;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import in.srain.cube.demo.R;
+import in.srain.cube.demo.ui.imageloader.ImageSize;
 import in.srain.cube.image.CubeImageView;
-import in.srain.cube.image.ImageLoader;
 import in.srain.cube.views.list.ListViewDataAdapter;
 import in.srain.cube.views.list.ViewHolderBase;
 
@@ -35,7 +35,7 @@ public class InnerInstanceClassNoArgsFragment extends ViewHolderDemoBaseFragment
 
         @Override
         public void showData(int position, String itemData) {
-            mImageView.loadImage(getImageLoader(), itemData, sSmallImageReuseInfo);
+            mImageView.loadImage(getImageLoader(), itemData, ImageSize.sSmallImageReuseInfo);
         }
     }
 }

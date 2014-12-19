@@ -59,4 +59,8 @@ public abstract class DemoBlockMenuFragment extends BlockMenuFragment {
         return view;
     }
 
+    @Override
+    protected boolean enableDefaultBack() {
+        return true;
+    }
 }

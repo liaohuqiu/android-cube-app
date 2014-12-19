@@ -1,4 +1,4 @@
-package in.srain.cube.demo.ui.viewholder;
+package in.srain.cube.demo.ui.viewholderdemo;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,14 +19,12 @@ import java.util.Arrays;
 public abstract class ViewHolderDemoBaseFragment extends DemoTitleBaseFragment {
 
     private ImageLoader mImageLoader;
-    protected static final ImageReuseInfo sSmallImageReuseInfo = Images.sImageReuseInfoManger.create("small_180");
 
     @Override
     public View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         mImageLoader = ImageLoaderFactory.create(getActivity()).attachToCubeFragment(this);
         ((DefaultImageLoadHandler) mImageLoader.getImageLoadHandler()).setImageRounded(true, 25);
-        ((DefaultImageLoadHandler) mImageLoader.getImageLoadHandler()).setImageFadeIn(false);
 
         final View view = inflater.inflate(R.layout.load_small_image, null);
 

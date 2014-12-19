@@ -1,4 +1,4 @@
-package in.srain.cube.demo.ui.viewholder;
+package in.srain.cube.demo.ui.viewholderdemo;
 
 import android.view.View;
 import android.view.View.OnClickListener;

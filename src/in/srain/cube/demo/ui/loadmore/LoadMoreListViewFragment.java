@@ -5,51 +5,58 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.ListView;
 import com.squareup.otto.Subscribe;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.base.DemoTitleBaseFragment;
-import in.srain.cube.demo.data.ImageListData;
 import in.srain.cube.demo.data.ImageListItem;
+import in.srain.cube.demo.data.ImageListData;
 import in.srain.cube.demo.datamodel.ImageListDataModel;
 import in.srain.cube.demo.event.EventBus;
 import in.srain.cube.demo.event.SimpleEventHandler;
-import in.srain.cube.demo.ui.viewholders.ImageListItemMiddleImageViewHolder;
+import in.srain.cube.demo.ui.viewholders.ImageListItemSmallImageViewHolder;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
+import in.srain.cube.image.impl.DefaultImageLoadHandler;
+import in.srain.cube.util.CLog;
 import in.srain.cube.util.LocalDisplay;
-import in.srain.cube.views.GridViewWithHeaderAndFooter;
 import in.srain.cube.views.list.PagedListViewDataAdapter;
 import in.srain.cube.views.loadmore.LoadMoreContainer;
 import in.srain.cube.views.loadmore.LoadMoreHandler;
+import in.srain.cube.views.loadmore.LoadMoreListViewContainer;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 import in.srain.cube.views.ptr.header.MaterialHeader;
 
-public class LoadMoreGridViewFragment extends DemoTitleBaseFragment {
+import java.util.List;
+
+public class LoadMoreListViewFragment extends DemoTitleBaseFragment {
 
     private PagedListViewDataAdapter<ImageListItem> mAdapter;
     private ImageListDataModel mDataModel;
     private ImageLoader mImageLoader;
     private PtrFrameLayout mPtrFrameLayout;
-    private GridViewWithHeaderAndFooter mGridView;
+    private ListView mListView;
 
     @Override
-    public View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View createView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
 
-        setHeaderTitle(R.string.cube_demo_load_more_grid_view);
+        setHeaderTitle(R.string.cube_demo_load_more_list_view);
 
         mImageLoader = ImageLoaderFactory.create(getContext()).attachToCubeFragment(this);
+        ((DefaultImageLoadHandler) mImageLoader.getImageLoadHandler()).setImageRounded(true, 25);
 
         // set up data
         mDataModel = new ImageListDataModel();
 
         mAdapter = new PagedListViewDataAdapter<ImageListItem>();
-        mAdapter.setViewHolderClass(this, ImageListItemMiddleImageViewHolder.class, mImageLoader);
+        mAdapter.setViewHolderClass(this, ImageListItemSmallImageViewHolder.class, mImageLoader);
         mAdapter.setListPageInfo(mDataModel.getListPageInfo());
 
         // set up views
-        final View view = inflater.inflate(R.layout.fragment_load_more_grid_view, null);
+        final View view = inflater.inflate(R.layout.fragment_load_more_list_view, null);
+
         // pull to refresh
         mPtrFrameLayout = (PtrFrameLayout) view.findViewById(R.id.load_more_list_view_ptr_frame);
         MaterialHeader ptrHeader = new MaterialHeader(getContext());
@@ -66,7 +73,7 @@ public class LoadMoreGridViewFragment extends DemoTitleBaseFragment {
             public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
 
                 // here check list view, not content.
-                return PtrDefaultHandler.checkContentCanBePulledDown(frame, mGridView, header);
+                return PtrDefaultHandler.checkContentCanBePulledDown(frame, mListView, header);
             }
 
             @Override
@@ -75,20 +82,21 @@ public class LoadMoreGridViewFragment extends DemoTitleBaseFragment {
             }
         });
 
-        mGridView = (GridViewWithHeaderAndFooter) view.findViewById(R.id.load_more_grid_view);
+        // list view
+        mListView = (ListView) view.findViewById(R.id.load_more_small_image_list_view);
 
         // header place holder
         View headerMarginView = new View(getContext());
         headerMarginView.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, LocalDisplay.dp2px(20)));
-        mGridView.addHeaderView(headerMarginView);
+        mListView.addHeaderView(headerMarginView);
 
         // load more container
-        final LoadMoreGridViewContainer loadMoreContainer = (LoadMoreGridViewContainer) view.findViewById(R.id.load_more_grid_view_container);
-        loadMoreContainer.useDefaultHeader();
+        final LoadMoreListViewContainer loadMoreListViewContainer = (LoadMoreListViewContainer) view.findViewById(R.id.load_more_list_view_container);
+        loadMoreListViewContainer.useDefaultHeader();
 
         // binding view and data
-        mGridView.setAdapter(mAdapter);
-        loadMoreContainer.setLoadMoreHandler(new LoadMoreHandler() {
+        mListView.setAdapter(mAdapter);
+        loadMoreListViewContainer.setLoadMoreHandler(new LoadMoreHandler() {
             @Override
             public void onLoadMore(LoadMoreContainer loadMoreContainer) {
                 mDataModel.queryNextPage();
@@ -101,11 +109,13 @@ public class LoadMoreGridViewFragment extends DemoTitleBaseFragment {
             public void onImageListDataEvent(ImageListData event) {
                 mPtrFrameLayout.refreshComplete();
             }
+
         }).tryToRegisterIfNot();
+
         mPtrFrameLayout.addPtrUIHandler(new PtrUIRefreshCompleteHandler() {
             @Override
             public void onUIRefreshComplete(PtrFrameLayout frame) {
-                loadMoreContainer.loadMoreFinish(mDataModel.getListPageInfo().getPage(), mDataModel.getListPageInfo().hasMore());
+                loadMoreListViewContainer.loadMoreFinish(mDataModel.getListPageInfo().getPage(), mDataModel.getListPageInfo().hasMore());
                 mAdapter.notifyDataSetChanged();
             }
         });
@@ -119,5 +129,4 @@ public class LoadMoreGridViewFragment extends DemoTitleBaseFragment {
 
         return view;
     }
-
 }

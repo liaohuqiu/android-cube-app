@@ -6,9 +6,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:text="FOOTER"
         android:layout_marginBottom="10dp"
         android:background="@color/cube_mints_main_color"
         android:gravity="center"
+        android:text="FOOTER"
+        android:textColor="@color/cube_mints_white"
         android:textSize="14dp" />
 </FrameLayout>

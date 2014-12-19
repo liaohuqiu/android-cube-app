@@ -1,7 +1,11 @@
 package in.srain.cube.demo.datamodel;
 
+import in.srain.cube.demo.data.ImageListData;
+import in.srain.cube.demo.data.ImageListItem;
 import in.srain.cube.request.*;
 import in.srain.cube.util.CLog;
+
+import java.util.ArrayList;
 
 /**
  * When requesting data from web API, it is a good practice to encapsulate all the request logic in a module.
@@ -42,29 +46,20 @@ public class DemoRequestData {
         request.send();
     }
 
-    /**
-     * customized callback, notified when data loaded
-     */
-    public static interface ImageListDataHandler {
-        public void onData(JsonData data, CacheAbleRequest.ResultType type, boolean outOfDate);
+    public static void getImageList(final ImageListDataHandler handler) {
+        getImageList(handler, 0, 7, false);
     }
 
-    /**
-     * Demo for using {@link CacheAbleRequest}
-     *
-     * @param noCache
-     */
-    public static void getImageList(final boolean noCache, final ImageListDataHandler handler) {
+    public static void getImageList(final ImageListDataHandler handler, int start, int num, boolean nocache) {
 
-        CacheAbleRequestHandler requestHandler = new CacheAbleRequestHandler<JsonData>() {
+        CacheAbleRequestHandler requestHandler = new CacheAbleRequestHandler<ImageListData>() {
             @Override
-            public void onCacheData(JsonData data, boolean outOfDate) {
+            public void onCacheData(ImageListData data, boolean outOfDate) {
                 CLog.d("demo-request", "data has been loaded form cache, out of date: %s", outOfDate);
             }
 
             @Override
-            public void onCacheAbleRequestFinish(JsonData data, CacheAbleRequest.ResultType type,
-                                                 boolean outOfDate) {
+            public void onCacheAbleRequestFinish(ImageListData data, CacheAbleRequest.ResultType type, boolean outOfDate) {
 
                 CLog.d("demo-request",
                         "onData: result type: %s, out of date: %s", type, outOfDate);
@@ -73,8 +68,21 @@ public class DemoRequestData {
             }
 
             @Override
-            public JsonData processOriginData(JsonData jsonData) {
-                return jsonData;
+            public ImageListData processOriginData(JsonData jsonData) {
+                JsonData data = jsonData.optJson("data");
+                ArrayList<JsonData> rawList = data.optJson("list").toArrayList();
+
+                ArrayList<ImageListItem> imageList = new ArrayList<ImageListItem>();
+                for (int i = 0; i < rawList.size(); i++) {
+                    ImageListItem item = new ImageListItem(rawList.get(i));
+                    imageList.add(item);
+                }
+
+                ImageListData imageListData = new ImageListData();
+                imageListData.imageList = imageList;
+                imageListData.hasMore = data.optBoolean("has_more");
+                imageListData.success = true;
+                return imageListData;
             }
 
             @Override
@@ -83,17 +91,22 @@ public class DemoRequestData {
             }
 
             @Override
-            public void onRequestFinish(JsonData data) {
+            public void onRequestFinish(ImageListData data) {
                 CLog.d("demo-request", "onRequestFinish");
             }
         };
 
         CacheAbleRequest<JsonData> request = new CacheAbleRequest<JsonData>(requestHandler);
 
-        String url = "http://cube-server.liaohuqiu.net/api_demo/image-list.php";
-        request.getRequestData().setRequestUrl(url);
+        String cacheKey = String.format("image-list-%s-%s", start, num);
+        String url = ConfigData.API_URL_PRE + "/image-list.php";
+        RequestData requestData = request.getRequestData();
+        requestData.setRequestUrl(url);
+        requestData.addQueryData("start", start);
+        requestData.addQueryData("num", num);
+
         request.setInitDataPath("request_init/demo/image-list.json");
-        request.setCacheKey("image-list-1");
+        request.setCacheKey(cacheKey);
 
         // Uncomment following line to use the data from cache when cache is available
         // no matter whether it is expired or not.
@@ -103,5 +116,12 @@ public class DemoRequestData {
         // cache data will be used.
         // request.setTimeout(1000);
         request.send();
+    }
+
+    /**
+     * customized callback, notified when data loaded
+     */
+    public static interface ImageListDataHandler {
+        public void onData(ImageListData data, CacheAbleRequest.ResultType type, boolean outOfDate);
     }
 }

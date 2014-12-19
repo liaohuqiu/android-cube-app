@@ -11,7 +11,7 @@ public class RequestHomeFragment extends DemoBlockMenuFragment {
 
     @Override
     protected void addItemInfo(ArrayList<MenuItemInfo> itemInfos) {
-        itemInfos.add(newItemInfo(R.string.cube_demo_view_holder_top_class, "#4d90fe", new OnClickListener() {
+        itemInfos.add(newItemInfo(R.string.cube_demo_request_simple_api, "#4d90fe", new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -19,7 +19,7 @@ public class RequestHomeFragment extends DemoBlockMenuFragment {
             }
         }));
 
-        itemInfos.add(newItemInfo(R.string.cube_demo_view_holder_static_nested_class, "#4d90fe", new OnClickListener() {
+        itemInfos.add(newItemInfo(R.string.cube_demo_request_cache_management, "#4d90fe", new OnClickListener() {
 
             @Override
             public void onClick(View v) {

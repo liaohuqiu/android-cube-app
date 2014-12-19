@@ -5,9 +5,13 @@ import android.view.View;
 import android.widget.ListView;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.base.DemoTitleBaseActivity;
-import in.srain.cube.demo.ui.imageloader.LoadBigImageController;
+import in.srain.cube.demo.datamodel.Images;
+import in.srain.cube.demo.ui.viewholders.StringBigImageViewHolder;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
+import in.srain.cube.views.list.ListViewDataAdapter;
+
+import java.util.Arrays;
 
 public class LoadBigImageInActivity extends DemoTitleBaseActivity {
 
@@ -22,7 +26,12 @@ public class LoadBigImageInActivity extends DemoTitleBaseActivity {
         ImageLoader imageLoader = ImageLoaderFactory.create(this).tryToAttachToContainer(this);
 
         final View v = mContentContainer;
+        ListViewDataAdapter<String> adapter = new ListViewDataAdapter<String>();
+        adapter.setViewHolderClass(this, StringBigImageViewHolder.class, imageLoader);
+        adapter.getDataList().addAll(Arrays.asList(Images.imageUrls));
+
         ListView listView = (ListView) v.findViewById(R.id.load_big_image_list_view);
-        new LoadBigImageController().takeControlDisplay(imageLoader, listView);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 }

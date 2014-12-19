@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cube="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f1f1f1">
@@ -10,26 +9,19 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <in.srain.cube.demo.ui.list.LoadMoreGridViewContainer
-            android:id="@+id/ly_image_list_grid_container"
+        <in.srain.cube.views.GridViewWithHeaderAndFooter
+            android:id="@+id/grid_view_with_header_and_footer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            cube:load_more_grid_view="@+id/ly_image_list_grid">
+            android:fadingEdge="none"
+            android:focusable="false"
+            android:horizontalSpacing="10dp"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="2"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:stretchMode="columnWidth" />
 
-            <in.srain.cube.views.GridViewWithHeaderAndFooter
-                android:id="@+id/ly_image_list_grid"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fadingEdge="none"
-                android:focusable="false"
-                android:horizontalSpacing="10dp"
-                android:listSelector="@android:color/transparent"
-                android:numColumns="2"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:scrollbarStyle="outsideOverlay"
-                android:stretchMode="columnWidth" />
-
-        </in.srain.cube.demo.ui.list.LoadMoreGridViewContainer>
     </in.srain.cube.views.ptr.PtrClassicFrameLayout>
 </RelativeLayout>

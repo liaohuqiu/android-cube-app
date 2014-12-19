@@ -4,10 +4,14 @@ import android.os.Bundle;
 import android.widget.ListView;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.base.DemoTitleBaseActivity;
-import in.srain.cube.demo.ui.imageloader.LoadSmallImageController;
+import in.srain.cube.demo.datamodel.Images;
+import in.srain.cube.demo.ui.viewholders.StringSmallImageViewHolder;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.image.impl.DefaultImageLoadHandler;
+import in.srain.cube.views.list.ListViewDataAdapter;
+
+import java.util.Arrays;
 
 public class LoadSmallImageInActivity extends DemoTitleBaseActivity {
 
@@ -22,6 +26,11 @@ public class LoadSmallImageInActivity extends DemoTitleBaseActivity {
 
         ListView listView = (ListView) mContentContainer.findViewById(R.id.load_small_image_list_view);
 
-        new LoadSmallImageController().takeControlDisplay(imageLoader, listView);
+        ListViewDataAdapter<String> adapter = new ListViewDataAdapter<String>();
+        adapter.setViewHolderClass(this, StringSmallImageViewHolder.class, imageLoader);
+        adapter.getDataList().addAll(Arrays.asList(Images.imageUrls));
+
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 }

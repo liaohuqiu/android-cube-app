@@ -1,5 +1,6 @@
 package in.srain.cube.demo.datamodel;
 
+import in.srain.cube.demo.data.ImageListData;
 import in.srain.cube.demo.data.ImageListItem;
 import in.srain.cube.demo.event.EventBus;
 import in.srain.cube.demo.request.DemoCacheRequest;
@@ -18,10 +19,10 @@ public class ImageListDataModel extends PagedListDataModel<ImageListItem> {
     @Override
     protected void doQueryData() {
 
-        DemoCacheRequest<ImageListDataEvent> request = new DemoCacheRequest<ImageListDataEvent>(new CacheAbleRequestDefaultHandler<ImageListDataEvent>() {
+        DemoCacheRequest<ImageListData> request = new DemoCacheRequest<ImageListData>(new CacheAbleRequestDefaultHandler<ImageListData>() {
 
             @Override
-            public ImageListDataEvent processOriginData(JsonData jsonData) {
+            public ImageListData processOriginData(JsonData jsonData) {
                 JsonData data = jsonData.optJson("data");
                 ArrayList<JsonData> rawList = data.optJson("list").toArrayList();
 
@@ -31,7 +32,7 @@ public class ImageListDataModel extends PagedListDataModel<ImageListItem> {
                     imageList.add(item);
                 }
 
-                ImageListDataEvent event = new ImageListDataEvent();
+                ImageListData event = new ImageListData();
                 event.success = true;
                 event.imageList = imageList;
                 event.hasMore = data.optBoolean("has_more");
@@ -39,14 +40,14 @@ public class ImageListDataModel extends PagedListDataModel<ImageListItem> {
             }
 
             @Override
-            public void onCacheAbleRequestFinish(ImageListDataEvent event, CacheAbleRequest.ResultType type, boolean outOfDate) {
-                setRequestResult(event.imageList, event.hasMore);
-                EventBus.getInstance().post(event);
+            public void onCacheAbleRequestFinish(ImageListData data, CacheAbleRequest.ResultType type, boolean outOfDate) {
+                setRequestResult(data.imageList, data.hasMore);
+                EventBus.getInstance().post(data);
             }
 
             @Override
             public void onRequestFail(FailData failData) {
-                ImageListDataEvent event = new ImageListDataEvent();
+                ImageListData event = new ImageListData();
                 EventBus.getInstance().post(event);
             }
         });
@@ -60,11 +61,5 @@ public class ImageListDataModel extends PagedListDataModel<ImageListItem> {
         requestData.addQueryData("num", mListPageInfo.getNumPerPage());
         request.getRequestData().setRequestUrl(ConfigData.API_URL_PRE + "/image-list");
         request.send();
-    }
-
-    public static class ImageListDataEvent {
-        public boolean success;
-        public boolean hasMore;
-        public ArrayList<ImageListItem> imageList;
     }
 }

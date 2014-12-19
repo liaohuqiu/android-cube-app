@@ -1,22 +1,28 @@
-package in.srain.cube.demo.ui.viewholder;
+package in.srain.cube.demo.ui.viewholderdemo;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import in.srain.cube.demo.R;
+import in.srain.cube.demo.ui.imageloader.ImageSize;
 import in.srain.cube.image.CubeImageView;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.views.list.ListViewDataAdapter;
 import in.srain.cube.views.list.ViewHolderBase;
 
-public class NestedStaticClassFragment extends ViewHolderDemoBaseFragment {
+public class InnerInstanceClassWithArgsFragment extends ViewHolderDemoBaseFragment {
 
     protected void setupViews(ListViewDataAdapter<String> adapter) {
-        setHeaderTitle(R.string.cube_demo_view_holder_static_nested_class);
+        setHeaderTitle(R.string.cube_demo_view_holder_inner_instance_with_args_class);
+
+        // 1 argument
         adapter.setViewHolderClass(this, ClassInnerInstanceViewHolder.class, getImageLoader());
     }
 
-    private static class ClassInnerInstanceViewHolder extends ViewHolderBase<String> {
+    /**
+     * inner class, initiated with 1 arguments
+     */
+    private class ClassInnerInstanceViewHolder extends ViewHolderBase<String> {
 
         private ImageLoader mImageLoader;
         private CubeImageView mImageView;
@@ -35,7 +41,7 @@ public class NestedStaticClassFragment extends ViewHolderDemoBaseFragment {
 
         @Override
         public void showData(int position, String itemData) {
-            mImageView.loadImage(mImageLoader, itemData, sSmallImageReuseInfo);
+            mImageView.loadImage(mImageLoader, itemData, ImageSize.sSmallImageReuseInfo);
         }
     }
 }

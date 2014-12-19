@@ -1,11 +1,6 @@
 package in.srain.cube.demo.datamodel;
 
-import in.srain.cube.image.ImageReuseInfoManger;
-
 public class Images {
-
-    private static final String[] sizeList = new String[]{"small_180", "big_360", "big"};
-    public static final ImageReuseInfoManger sImageReuseInfoManger = new ImageReuseInfoManger(sizeList);
 
     public final static String[] imageUrls = new String[]{
             "http://img4.duitang.com/uploads/blog/201311/04/20131104193715_NCexN.thumb.jpeg",

@@ -1,12 +1,12 @@
-package in.srain.cube.demo.ui.viewholder;
+package in.srain.cube.demo.ui.viewholderdemo;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import in.srain.cube.demo.R;
+import in.srain.cube.demo.ui.imageloader.ImageSize;
 import in.srain.cube.image.CubeImageView;
 import in.srain.cube.image.ImageLoader;
-import in.srain.cube.util.CLog;
 import in.srain.cube.views.list.ViewHolderBase;
 
 public class TopLevelViewHolder extends ViewHolderBase<String> {
@@ -32,6 +32,6 @@ public class TopLevelViewHolder extends ViewHolderBase<String> {
 
     @Override
     public void showData(int position, String itemData) {
-        mImageView.loadImage(mImageLoader, itemData, ViewHolderDemoBaseFragment.sSmallImageReuseInfo);
+        mImageView.loadImage(mImageLoader, itemData, ImageSize.sSmallImageReuseInfo);
     }
 }

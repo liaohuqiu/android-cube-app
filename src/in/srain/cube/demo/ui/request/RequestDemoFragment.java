@@ -9,11 +9,11 @@ import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import in.srain.cube.demo.R;
+import in.srain.cube.demo.datamodel.DemoRequestData;
+import in.srain.cube.mints.base.TitleBaseFragment;
 import in.srain.cube.request.JsonData;
 import in.srain.cube.request.RequestJsonHandler;
-import in.srain.cube.demo.R;
-import in.srain.cube.mints.base.TitleBaseFragment;
-import in.srain.cube.demo.datamodel.DemoRequestData;
 
 public class RequestDemoFragment extends TitleBaseFragment {
 

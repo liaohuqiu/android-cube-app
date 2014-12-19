@@ -7,9 +7,13 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.base.DemoTitleBaseFragment;
-import in.srain.cube.demo.ui.imageloader.LoadMiddleImageController;
+import in.srain.cube.demo.datamodel.Images;
+import in.srain.cube.demo.ui.viewholders.StringMiddleImageViewViewHolder;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
+import in.srain.cube.views.list.ListViewDataAdapter;
+
+import java.util.Arrays;
 
 public class LoadMidImageInFragment extends DemoTitleBaseFragment {
 
@@ -20,10 +24,15 @@ public class LoadMidImageInFragment extends DemoTitleBaseFragment {
         ImageLoader imageLoader = ImageLoaderFactory.create(getActivity()).attachToCubeFragment(this);
 
         final View v = inflater.inflate(R.layout.load_middle_image, container, false);
-        final GridView gridListView = (GridView) v.findViewById(R.id.load_middle_image_grid_view);
+        final GridView gridView = (GridView) v.findViewById(R.id.load_middle_image_grid_view);
 
-        new LoadMiddleImageController().takeControlDisplay(imageLoader, gridListView);
+        final ListViewDataAdapter<String> adapter = new ListViewDataAdapter<String>();
+        adapter.setViewHolderClass(this, StringMiddleImageViewViewHolder.class, imageLoader);
+        adapter.getDataList().addAll(Arrays.asList(Images.imageUrls));
 
+        gridView.setNumColumns(2);
+        gridView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
         return v;
     }
 }

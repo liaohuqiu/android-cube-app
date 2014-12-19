@@ -4,9 +4,13 @@ import android.os.Bundle;
 import android.widget.GridView;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.base.DemoTitleBaseActivity;
-import in.srain.cube.demo.ui.imageloader.LoadMiddleImageController;
+import in.srain.cube.demo.datamodel.Images;
+import in.srain.cube.demo.ui.viewholders.StringMiddleImageViewViewHolder;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
+import in.srain.cube.views.list.ListViewDataAdapter;
+
+import java.util.Arrays;
 
 public class LoadMidImageInActivity extends DemoTitleBaseActivity {
 
@@ -20,6 +24,13 @@ public class LoadMidImageInActivity extends DemoTitleBaseActivity {
         ImageLoader imageLoader = ImageLoaderFactory.create(this).tryToAttachToContainer(this);
 
         final GridView gridView = (GridView) findViewById(R.id.load_middle_image_grid_view);
-        new LoadMiddleImageController().takeControlDisplay(imageLoader, gridView);
+
+        final ListViewDataAdapter<String> adapter = new ListViewDataAdapter<String>();
+        adapter.setViewHolderClass(this, StringMiddleImageViewViewHolder.class, imageLoader);
+        adapter.getDataList().addAll(Arrays.asList(Images.imageUrls));
+
+        gridView.setNumColumns(2);
+        gridView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 }
