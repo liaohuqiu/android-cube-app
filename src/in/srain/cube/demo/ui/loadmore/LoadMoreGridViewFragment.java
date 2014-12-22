@@ -51,7 +51,7 @@ public class LoadMoreGridViewFragment extends DemoTitleBaseFragment {
         // set up views
         final View view = inflater.inflate(R.layout.fragment_load_more_grid_view, null);
         // pull to refresh
-        mPtrFrameLayout = (PtrFrameLayout) view.findViewById(R.id.load_more_list_view_ptr_frame);
+        mPtrFrameLayout = (PtrFrameLayout) view.findViewById(R.id.load_more_grid_view_ptr_frame);
         MaterialHeader ptrHeader = new MaterialHeader(getContext());
         PtrFrameLayout.LayoutParams lp = new PtrFrameLayout.LayoutParams(-1, -2);
         ptrHeader.setLayoutParams(lp);
