@@ -84,6 +84,7 @@ public class LoadMoreGridViewFragment extends DemoTitleBaseFragment {
 
         // load more container
         final LoadMoreGridViewContainer loadMoreContainer = (LoadMoreGridViewContainer) view.findViewById(R.id.load_more_grid_view_container);
+        loadMoreContainer.setAutoLoadMore(false);
         loadMoreContainer.useDefaultHeader();
 
         // binding view and data

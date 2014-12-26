@@ -9,8 +9,8 @@ import android.widget.ListView;
 import com.squareup.otto.Subscribe;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.base.DemoTitleBaseFragment;
-import in.srain.cube.demo.data.ImageListItem;
 import in.srain.cube.demo.data.ImageListData;
+import in.srain.cube.demo.data.ImageListItem;
 import in.srain.cube.demo.datamodel.ImageListDataModel;
 import in.srain.cube.demo.event.EventBus;
 import in.srain.cube.demo.event.SimpleEventHandler;
@@ -18,7 +18,6 @@ import in.srain.cube.demo.ui.viewholders.ImageListItemSmallImageViewHolder;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.image.impl.DefaultImageLoadHandler;
-import in.srain.cube.util.CLog;
 import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.list.PagedListViewDataAdapter;
 import in.srain.cube.views.loadmore.LoadMoreContainer;
@@ -28,8 +27,6 @@ import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
 import in.srain.cube.views.ptr.header.MaterialHeader;
-
-import java.util.List;
 
 public class LoadMoreListViewFragment extends DemoTitleBaseFragment {
 
