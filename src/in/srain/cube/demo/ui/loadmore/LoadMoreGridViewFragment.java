@@ -20,6 +20,7 @@ import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.GridViewWithHeaderAndFooter;
 import in.srain.cube.views.list.PagedListViewDataAdapter;
 import in.srain.cube.views.loadmore.LoadMoreContainer;
+import in.srain.cube.views.loadmore.LoadMoreGridViewContainer;
 import in.srain.cube.views.loadmore.LoadMoreHandler;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;

@@ -35,9 +35,17 @@ public class CubeDemoApplication extends Application {
         Debug.DEBUG_REQUEST = true;
 
         File path1 = Environment.getExternalStoragePublicDirectory("cube/test1/a/b/c");
-        ImageLoaderFactory.customizeCache(this, ImageLoaderFactory.getDefaultMemoryCacheSizeInKB(),
-                path1.getAbsolutePath(), ImageLoaderFactory.DEFAULT_FILE_CACHE_SIZE_IN_KB
+        ImageLoaderFactory.customizeCache(
+                this,
+                // memory size
+                1024 * 10,
+                // ImageLoaderFactory.getDefaultMemoryCacheSizeInKB(),
+                // disk cache directory
+                path1.getAbsolutePath(),
+                // disk cache size
+                ImageLoaderFactory.DEFAULT_FILE_CACHE_SIZE_IN_KB
         );
+
         ImageLoaderFactory.setDefaultImageResizer(DemoDuiTangImageResizer.getInstance());
         String dir = "request-cache";
         RequestCacheManager.init(this, dir, 1024 * 10, 1024 * 10);

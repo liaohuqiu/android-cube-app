@@ -57,7 +57,7 @@ public class PreLoadImageFragment extends TitleBaseFragment {
             @Override
             public void onLoadFinish(ImageTask imageTask, CubeImageView cubeImageView, BitmapDrawable drawable) {
                 CLog.d(Debug.DEBUG_IMAGE_LOG_TAG, "onLoadFinish: %s", imageTask.getRemoteUrl());
-                imageView.loadImage(imageLoader, imageTask.getRemoteUrl());
+                // imageView.loadImage(imageLoader, imageTask.getRemoteUrl());
 
                 // save to disk
                 preLoadImageLoader.flushFileCache();
@@ -72,6 +72,24 @@ public class PreLoadImageFragment extends TitleBaseFragment {
         String[] urls = new String[]{
                 "http://cdn.duitang.com/uploads/item/201408/07/20140807224553_VXaUc.thumb.jpeg",
         };
+        urls = new String[]{"http://static.kuaihuala.com/uploads/share/20141223/14193276354943.jpg",
+                "http://static.kuaihuala.com/uploads/adver/20141222/14192466504022.jpg",
+                "http://static.kuaihuala.com/uploads/adver/20141222/14192464894056.jpg",
+                "http://static.kuaihuala.com/uploads/download/20141230/14199214419877.jpg",
+                "http://static.kuaihuala.com/uploads/download/20141222/14192471472179.jpg",
+                "http://static.kuaihuala.com/uploads/download/20141222/1419245961720.jpg",
+                "http://static.kuaihuala.com/uploads/share/20141229/14198335778831.jpg",
+                "http://static.kuaihuala.com/uploads/share/20141223/14193308734597.jpg",
+                "http://static.kuaihuala.com/uploads/download/20141229/14198460398571.jpg",
+                "http://static.kuaihuala.com/uploads/download/20141229/14198399966853.jpg",
+                "http://static.kuaihuala.com/uploads/download/20141229/14198498909027.jpg",
+                "http://static.kuaihuala.com/uploads/adver/20141230/1419924451817.jpg",
+                "http://static.kuaihuala.com/uploads/download/20141231/14199924451997.jpg",
+                "http://static.kuaihuala.com/uploads/download/20141231/1419993178509.jpg",
+                "http://static.kuaihuala.com/uploads/download/20141231/14199938863183.jpg",
+                "http://static.kuaihuala.com/uploads/download/20141231/14199956659657.jpg",
+                "http://static.kuaihuala.com/uploads/download/20141231/14199960857576.jpg",
+                "http://static.kuaihuala.com/uploads/download/20141231/14199965043272.jpg"};
         preLoadImageLoader.preLoadImages(urls);
         return view;
     }

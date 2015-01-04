@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <in.srain.cube.demo.ui.loadmore.LoadMoreGridViewContainer
+        <in.srain.cube.views.loadmore.LoadMoreGridViewContainer
             android:id="@+id/load_more_grid_view_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,6 +29,6 @@
                 android:scrollbarStyle="outsideOverlay"
                 android:stretchMode="columnWidth" />
 
-        </in.srain.cube.demo.ui.loadmore.LoadMoreGridViewContainer>
+        </in.srain.cube.views.loadmore.LoadMoreGridViewContainer>
     </in.srain.cube.views.ptr.PtrFrameLayout>
 </RelativeLayout>
