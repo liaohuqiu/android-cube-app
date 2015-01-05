@@ -61,10 +61,10 @@ public class RequestCacheManagementFragment extends TitleBaseFragment {
     private void update() {
 
         mFileCachePath.value(mRequestCacheManager.getFileCachePath());
-        mFileCacheMax.value(mRequestCacheManager.getFileCacheMaxSpace() / 1024f / 1024 + "MB");
-        mFileCacheUsed.value(mRequestCacheManager.getFileCacheUsedSpace() / 1024f / 1024 + "MB");
+        mFileCacheMax.value(mRequestCacheManager.getFileCacheMaxSpace() / 1024f + "KB");
+        mFileCacheUsed.value(mRequestCacheManager.getFileCacheUsedSpace() / 1024f + "KB");
 
-        mMemoryCacheMax.value(mRequestCacheManager.getMemoryCacheMaxSpace() / 1024f / 1024 + "MB");
-        mMemoryCacheUsed.value(mRequestCacheManager.getMemoryCacheUsedSpace() / 1024f / 1024 + "MB");
+        mMemoryCacheMax.value(mRequestCacheManager.getMemoryCacheMaxSpace() / 1024f + "KB");
+        mMemoryCacheUsed.value(mRequestCacheManager.getMemoryCacheUsedSpace() / 1024f + "KB");
     }
 }

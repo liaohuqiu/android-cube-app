@@ -31,6 +31,7 @@
 
     <string name="cube_demo_request_demo">Request and Request Cache</string>
     <string name="cube_demo_request_simple_api">API Request</string>
+    <string name="cube_demo_request_cache_able_request">Request Cache</string>
     <string name="cube_demo_request_cache_management">RequestCache Management</string>
 
 </resources>

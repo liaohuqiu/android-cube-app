@@ -19,6 +19,14 @@ public class RequestHomeFragment extends DemoBlockMenuFragment {
             }
         }));
 
+        itemInfos.add(newItemInfo(R.string.cube_demo_request_cache_able_request, "#4d90fe", new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                getContext().pushFragmentToBackStack(CacheAbleRequestDemoFragment.class, null);
+            }
+        }));
+
         itemInfos.add(newItemInfo(R.string.cube_demo_request_cache_management, "#4d90fe", new OnClickListener() {
 
             @Override
