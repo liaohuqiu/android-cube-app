@@ -25,12 +25,12 @@
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>support-v4</artifactId>
-            <version>r7</version>
+            <version>{support_v4_version}</version>
         </dependency>
         <dependency>
             <groupId>in.srain.cube</groupId>
             <artifactId>clog</artifactId>
-            <version>1.0.2</version>
+            <version>{clog_version}</version>
         </dependency>
         <dependency>
             <groupId>in.srain.cube</groupId>
@@ -63,7 +63,7 @@
         <dependency>
             <groupId>com.squareup</groupId>
             <artifactId>otto</artifactId>
-            <version>1.3.4</version>
+            <version>{event_bus_version}</version>
         </dependency>
     </dependencies>
 

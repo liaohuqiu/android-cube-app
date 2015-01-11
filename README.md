@@ -6,7 +6,7 @@
 *   clog, 版本: 1.0.2, https://github.com/liaohuqiu/android-CLog
 *   cube-sdk, 版本: 1.0.43-SNAPSHOT, https://github.com/etao-open-source/cube-sdk
 *   ultra-pull-to-refresh, 版本: 1.0.5, https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
-*   event-bus, 版本: 1.0.5, https://github.com/square/otto
+*   event-bus, 版本: 1.3.4, https://github.com/square/otto
 
 ### 关于Eclipse运行项目
 
@@ -18,11 +18,11 @@
 
 建议：将这些依赖的类库的项目在Eclipse作为工程打开，引入到你的项目中。以下是需要引入的项目:
 
-    *  cube-sdk.  https://github.com/etao-open-source/cube-sdk  core文件夹作为一个类库项目引入
+*  cube-sdk.  https://github.com/etao-open-source/cube-sdk  core文件夹作为一个类库项目引入
 
-    *  ultra-ptr. https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh. ptr-lib文件夹，作为一个类库项目引入。
-    
-    注意： **请使用dev分支中最新的代码**
+*  ultra-ptr. https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh. ptr-lib文件夹，作为一个类库项目引入。
+
+注意： **请使用dev分支中最新的代码**
 
 ### 联系方式和问题建议
 
