@@ -10,11 +10,8 @@ import in.srain.cube.demo.base.DemoTitleBaseFragment;
 import in.srain.cube.demo.datamodel.Images;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
-import in.srain.cube.image.ImageReuseInfo;
 import in.srain.cube.image.impl.DefaultImageLoadHandler;
 import in.srain.cube.views.list.ListViewDataAdapter;
-
-import java.util.Arrays;
 
 public abstract class ViewHolderDemoBaseFragment extends DemoTitleBaseFragment {
 
@@ -35,7 +32,7 @@ public abstract class ViewHolderDemoBaseFragment extends DemoTitleBaseFragment {
         setupViews(adapter);
 
         listView.setAdapter(adapter);
-        adapter.getDataList().addAll(Arrays.asList(Images.imageUrls));
+        adapter.getDataList().addAll(Images.getImages());
         adapter.notifyDataSetChanged();
         return view;
     }

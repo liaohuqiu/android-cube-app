@@ -1,8 +1,25 @@
 package in.srain.cube.demo.datamodel;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Images {
 
-    public final static String[] imageUrls = new String[]{
+    private static String[] sTestImages;
+
+    static {
+
+        sTestImages = new String[50];
+        for (int i = 0; i < 50; i++) {
+            sTestImages[i] = "http://www.android-cube-app-server.liaohuqiu.net/test-image/" + i + ".thumb.png";
+        }
+    }
+
+    public static List<String> getImages() {
+        return Arrays.asList(Images.sTestImages);
+    }
+
+    private final static String[] imageUrls = new String[]{
             "http://img4.duitang.com/uploads/blog/201311/04/20131104193715_NCexN.thumb.jpeg",
             "http://img5.duitang.com/uploads/item/201408/09/20140809210610_iTSJx.thumb.jpeg",
             "http://cdn.duitang.com/uploads/blog/201401/07/20140107223310_LH3Uy.thumb.jpeg",

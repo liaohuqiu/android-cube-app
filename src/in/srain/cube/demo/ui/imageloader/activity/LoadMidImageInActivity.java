@@ -10,8 +10,6 @@ import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.views.list.ListViewDataAdapter;
 
-import java.util.Arrays;
-
 public class LoadMidImageInActivity extends DemoTitleBaseActivity {
 
     @Override
@@ -27,7 +25,7 @@ public class LoadMidImageInActivity extends DemoTitleBaseActivity {
 
         final ListViewDataAdapter<String> adapter = new ListViewDataAdapter<String>();
         adapter.setViewHolderClass(this, StringMiddleImageViewViewHolder.class, imageLoader);
-        adapter.getDataList().addAll(Arrays.asList(Images.imageUrls));
+        adapter.getDataList().addAll(Images.getImages());
 
         gridView.setNumColumns(2);
         gridView.setAdapter(adapter);

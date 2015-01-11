@@ -11,8 +11,6 @@ import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.image.impl.DefaultImageLoadHandler;
 import in.srain.cube.views.list.ListViewDataAdapter;
 
-import java.util.Arrays;
-
 public class LoadSmallImageInActivity extends DemoTitleBaseActivity {
 
     @Override
@@ -28,7 +26,7 @@ public class LoadSmallImageInActivity extends DemoTitleBaseActivity {
 
         ListViewDataAdapter<String> adapter = new ListViewDataAdapter<String>();
         adapter.setViewHolderClass(this, StringSmallImageViewHolder.class, imageLoader);
-        adapter.getDataList().addAll(Arrays.asList(Images.imageUrls));
+        adapter.getDataList().addAll(Images.getImages());
 
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

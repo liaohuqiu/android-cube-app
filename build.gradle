@@ -19,9 +19,6 @@ allprojects {
         jcenter()
         mavenCentral();
         maven {
-            url 'http://mvnrepo.taobao.ali.com/mvn/repository'
-        }
-        maven {
             url 'https://oss.sonatype.org/content/repositories/snapshots'
         }
     }
@@ -109,7 +106,11 @@ task copyLibs << {
 dependencies {
     compile 'com.google.android:support-v4:r7'
     compile 'com.squareup:otto:1.3.4'
-    compile ('in.srain.cube:ultra-ptr:1.0.5@aar') {
+    compile 'in.srain.cube:clog:1.0.2'
+    compile('in.srain.cube:ultra-ptr:1.0.5@aar') {
+        exclude group: 'in.srain.cube', module: 'clog'
     }
-    compile 'in.srain.cube:cube-sdk:1.0.43-SNAPSHOT@aar'
+    compile('in.srain.cube:cube-sdk:1.0.43-SNAPSHOT@aar') {
+        exclude group: 'in.srain.cube', module: 'clog'
+    }
 }

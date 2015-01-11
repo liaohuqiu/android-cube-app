@@ -13,8 +13,6 @@ import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.views.list.ListViewDataAdapter;
 
-import java.util.Arrays;
-
 public class LoadBigImageFragment extends DemoTitleBaseFragment {
 
     @Override
@@ -30,7 +28,7 @@ public class LoadBigImageFragment extends DemoTitleBaseFragment {
         ListViewDataAdapter<String> adapter = new ListViewDataAdapter<String>();
         adapter.setViewHolderClass(this, StringBigImageViewHolder.class, imageLoader);
         listView.setAdapter(adapter);
-        adapter.getDataList().addAll(Arrays.asList(Images.imageUrls));
+        adapter.getDataList().addAll(Images.getImages());
         adapter.notifyDataSetChanged();
         return view;
     }

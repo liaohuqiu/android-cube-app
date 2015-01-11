@@ -4,6 +4,7 @@ import android.app.Application;
 import android.os.Environment;
 import in.srain.cube.Cube;
 import in.srain.cube.demo.image.DemoDuiTangImageResizer;
+import in.srain.cube.diskcache.lru.SimpleDiskLruCache;
 import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.request.RequestCacheManager;
 import in.srain.cube.util.CLog;
@@ -30,6 +31,9 @@ public class CubeDemoApplication extends Application {
             CLog.setLogLevel(CLog.LEVEL_VERBOSE);
         }
 
+        SimpleDiskLruCache.DEBUG = true;
+
+        Debug.DEBUG_LIFE_CYCLE = false;
         Debug.DEBUG_CACHE = true;
         Debug.DEBUG_IMAGE = true;
         Debug.DEBUG_REQUEST = true;
