@@ -1,20 +1,28 @@
 这个项目的目的是作为一个APP开发参考。
 
+### 依赖
+
+*   support-v4, 版本: {support_v4_version}
+*   clog, 版本: {clog_version}, https://github.com/liaohuqiu/android-CLog
+*   cube-sdk, 版本: {cube_sdk_version}, https://github.com/etao-open-source/cube-sdk
+*   ultra-pull-to-refresh, 版本: {ptr_lib_version}, https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
+*   event-bus, 版本: {ptr_lib_version}, https://github.com/square/otto
+
 ### 关于Eclipse运行项目
 
 通过gradle(Android Studio / Intellij IDEA)以及maven可以无阻碍地运行项目。但对于eclipse的同学来说，可能会遇到一些障碍。
 
-对于依赖的jar包，我都放在了libs目录下，直接引入到工程即可。
+一些依赖，直接是jar包, (support-v4, clog, event-bus), 我都放在了libs目录下，直接引入到工程即可。
 
-项目另外依赖一些aar或者apklib的包，在eclipse中，下面两个方法，选择其一:
+另外依赖的一些项目因为含有资源文件，无法仅打包成jar， 需要打包成aar或者apklib，而Eclipse是没有办法直接使用这两种格式的。
 
-1. 使用maven插件
-
-2. 将依赖的aar或者apklib包的项目的源码，作为工程打开，引入到你的项目中。以下是需要引入的项目:
+建议：将这些依赖的类库的项目在Eclipse作为工程打开，引入到你的项目中。以下是需要引入的项目:
 
     *  cube-sdk.  https://github.com/etao-open-source/cube-sdk  core文件夹作为一个类库项目引入
 
-    *  ultra-ptr. https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh. ptr-lib文件夹，作为一个独立项目引入。
+    *  ultra-ptr. https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh. ptr-lib文件夹，作为一个类库项目引入。
+    
+    注意： **请使用dev分支中最新的代码**
 
 ### 联系方式和问题建议
 

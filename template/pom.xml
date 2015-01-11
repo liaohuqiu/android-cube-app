@@ -29,6 +29,11 @@
         </dependency>
         <dependency>
             <groupId>in.srain.cube</groupId>
+            <artifactId>clog</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>in.srain.cube</groupId>
             <artifactId>ultra-ptr</artifactId>
             <type>aar</type>
             <version>{ptr_lib_version}</version>
@@ -45,6 +50,10 @@
             <type>aar</type>
             <version>{cube_sdk_version}</version>
             <exclusions>
+                <exclusion>
+                    <groupId>in.srain.cube</groupId>
+                    <artifactId>clog</artifactId>
+                </exclusion>
                 <exclusion>
                     <groupId>com.android.support</groupId>
                     <artifactId>support-v4</artifactId>
