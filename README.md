@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/liaohuqiu/android-cube-app.svg)](https://travis-ci.org/liaohuqiu/android-cube-app)
-
 这个项目的目的是作为一个APP开发参考。
 
 ### 依赖
@@ -7,7 +5,7 @@
 *   support-v4, 版本: r7
 *   clog, 版本: 1.0.2, https://github.com/liaohuqiu/android-CLog
 *   cube-sdk, 版本: 1.0.43-SNAPSHOT, https://github.com/etao-open-source/cube-sdk
-*   ultra-pull-to-refresh, 版本: 1.0.5, https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
+*   ultra-pull-to-refresh, 版本: 1.0.6, https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
 *   event-bus, 版本: 1.3.4, https://github.com/square/otto
 
 ### 关于Eclipse运行项目

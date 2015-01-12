@@ -11,13 +11,9 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral();
-    }
-}
-
-allprojects {
-    repositories {
-        jcenter()
-        mavenCentral();
+        maven {
+            url 'https://oss.sonatype.org/content/repositories/releases'
+        }
         maven {
             url 'https://oss.sonatype.org/content/repositories/snapshots'
         }
@@ -107,7 +103,7 @@ dependencies {
     compile 'com.google.android:support-v4:{support_v4_version}'
     compile 'com.squareup:otto:{event_bus_version}'
     compile 'in.srain.cube:clog:{clog_version}'
-    compile('{ptr_lib_version}') {
+    compile('in.srain.cube:ultra-ptr:{ptr_lib_version}@aar') {
         exclude group: 'in.srain.cube', module: 'clog'
     }
     compile('in.srain.cube:cube-sdk:{cube_sdk_version}@aar') {

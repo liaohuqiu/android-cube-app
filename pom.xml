@@ -36,7 +36,7 @@
             <groupId>in.srain.cube</groupId>
             <artifactId>ultra-ptr</artifactId>
             <type>aar</type>
-            <version>1.0.5</version>
+            <version>1.0.6</version>
             <exclusions>
                 <exclusion>
                     <groupId>in.srain.cube</groupId>
