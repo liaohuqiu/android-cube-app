@@ -112,7 +112,7 @@ public class LoadMoreListViewFragment extends DemoTitleBaseFragment {
         mPtrFrameLayout.addPtrUIHandler(new PtrUIRefreshCompleteHandler() {
             @Override
             public void onUIRefreshComplete(PtrFrameLayout frame) {
-                loadMoreListViewContainer.loadMoreFinish(mDataModel.getListPageInfo().getPage(), mDataModel.getListPageInfo().hasMore());
+                loadMoreListViewContainer.loadMoreFinish(mDataModel.getListPageInfo().isEmpty(), mDataModel.getListPageInfo().hasMore());
                 mAdapter.notifyDataSetChanged();
             }
         });

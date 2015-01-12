@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import com.squareup.otto.Subscribe;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.base.DemoTitleBaseFragment;
@@ -16,6 +17,7 @@ import in.srain.cube.demo.event.SimpleEventHandler;
 import in.srain.cube.demo.ui.viewholders.ImageListItemMiddleImageViewHolder;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
+import in.srain.cube.util.CLog;
 import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.GridViewWithHeaderAndFooter;
 import in.srain.cube.views.list.PagedListViewDataAdapter;
@@ -77,6 +79,12 @@ public class LoadMoreGridViewFragment extends DemoTitleBaseFragment {
         });
 
         mGridView = (GridViewWithHeaderAndFooter) view.findViewById(R.id.load_more_grid_view);
+        mGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                CLog.d("grid-view", "onItemClick: %s %s", position, id);
+            }
+        });
 
         // header place holder
         View headerMarginView = new View(getContext());
@@ -107,7 +115,7 @@ public class LoadMoreGridViewFragment extends DemoTitleBaseFragment {
         mPtrFrameLayout.addPtrUIHandler(new PtrUIRefreshCompleteHandler() {
             @Override
             public void onUIRefreshComplete(PtrFrameLayout frame) {
-                loadMoreContainer.loadMoreFinish(mDataModel.getListPageInfo().getPage(), mDataModel.getListPageInfo().hasMore());
+                loadMoreContainer.loadMoreFinish(mDataModel.getListPageInfo().isEmpty(), mDataModel.getListPageInfo().hasMore());
                 mAdapter.notifyDataSetChanged();
             }
         });
