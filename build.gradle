@@ -48,6 +48,18 @@ android {
     dexOptions {
         preDexLibraries = false
     }
+    allprojects {
+        repositories {
+            jcenter()
+            mavenCentral();
+        }
+    }
+
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
 
 }
 
