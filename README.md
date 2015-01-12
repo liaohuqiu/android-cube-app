@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/liaohuqiu/android-cube-app.svg?branch=master)](https://travis-ci.org/liaohuqiu/android-cube-app)
+
 这个项目的目的是作为一个APP开发参考。
 
 ### 依赖
