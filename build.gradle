@@ -32,6 +32,27 @@ android {
         targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
     }
 
+    signingConfigs {
+        debug {
+            storeFile file('tools/debug.keystore')
+        }
+        release {
+            storeFile file('tools/cubeapp.keystore')
+            storePassword "cubeapp"
+            keyAlias "cubeapp"
+            keyPassword "cubeapp"
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
