@@ -27,7 +27,8 @@
     <string name="cube_demo_load_more_grid_view">Load More for GridView</string>
 
     <string name="cube_demo_grid_view_with_header_and_footer">GridViewWithHeaderAndFooter</string>
-    <string name="cube_demo_grid_header_height_changed">The height of header has been changed.</string>
+    <string name="cube_demo_grid_increase_height">Click to increase height.</string>
+    <string name="cube_demo_grid_decrease_height">Click to decrease height.</string>
     <string name="cube_demo_slider_banner">Slider Banner</string>
 
     <string name="cube_demo_request_demo">Request and Request Cache</string>

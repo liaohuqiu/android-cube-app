@@ -27,8 +27,6 @@ public class GridViewWithHeaderAndFooterFragment extends TitleBaseFragment {
     private ImageLoader mImageLoader;
     private ListViewDataAdapter<ImageListItem> mAdapter;
     private PtrClassicFrameLayout mPtrFrame;
-    private View mHeaderView;
-    private TextView mHeaderTextView;
 
     @Override
     protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,17 +38,41 @@ public class GridViewWithHeaderAndFooterFragment extends TitleBaseFragment {
 
         final GridViewWithHeaderAndFooter gridView = (GridViewWithHeaderAndFooter) view.findViewById(R.id.grid_view_with_header_and_footer);
 
-        mHeaderView = inflater.inflate(R.layout.grid_view_header, null);
-        mHeaderTextView = (TextView) mHeaderView.findViewById(R.id.grid_view_header_text_view);
-        mHeaderView.setOnClickListener(new View.OnClickListener() {
+        View headerView = inflater.inflate(R.layout.grid_view_header, null);
+        headerView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPtrFrame.autoRefresh();
             }
         });
 
-        View footerView = inflater.inflate(R.layout.grid_view_footer, null);
-        gridView.addHeaderView(mHeaderView);
+        // change height: https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter/issues/12#issuecomment-70129036
+        View headerView2 = inflater.inflate(R.layout.grid_view_header, null);
+        final TextView headTextView = (TextView) headerView2.findViewById(R.id.grid_view_header_text_view);
+        headTextView.setText(R.string.cube_demo_grid_increase_height);
+        headerView2.setOnClickListener(new View.OnClickListener() {
+            private boolean high = false;
+
+            @Override
+            public void onClick(View v) {
+                FrameLayout.LayoutParams lyp = (FrameLayout.LayoutParams) headTextView.getLayoutParams();
+                if (high) {
+                    high = false;
+                    lyp.height = LocalDisplay.dp2px(100);
+                    headTextView.setText(R.string.cube_demo_grid_increase_height);
+                } else {
+                    high = true;
+                    lyp.height = LocalDisplay.dp2px(200);
+                    headTextView.setText(R.string.cube_demo_grid_decrease_height);
+                }
+                headTextView.setLayoutParams(lyp);
+                mAdapter.notifyDataSetChanged();
+            }
+        });
+
+        final View footerView = inflater.inflate(R.layout.grid_view_footer, null);
+        gridView.addHeaderView(headerView);
+        gridView.addHeaderView(headerView2);
         gridView.addFooterView(footerView);
 
         mAdapter = new ListViewDataAdapter<ImageListItem>();
@@ -84,12 +106,6 @@ public class GridViewWithHeaderAndFooterFragment extends TitleBaseFragment {
                 mAdapter.getDataList().addAll(data.imageList);
                 mAdapter.notifyDataSetChanged();
                 mPtrFrame.refreshComplete();
-
-                // increase height: https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter/issues/12#issuecomment-70129036
-                FrameLayout.LayoutParams lyp = (FrameLayout.LayoutParams) mHeaderTextView.getLayoutParams();
-                lyp.height = LocalDisplay.dp2px(100 + 100);
-                mHeaderTextView.setText(R.string.cube_demo_grid_header_height_changed);
-                mHeaderTextView.setLayoutParams(lyp);
             }
         });
     }

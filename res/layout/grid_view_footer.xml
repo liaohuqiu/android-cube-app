@@ -4,12 +4,13 @@
     android:layout_height="wrap_content">
 
     <TextView
+        android:id="@+id/grid_view_footer_text_view"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginBottom="10dp"
         android:background="@color/cube_mints_main_color"
         android:gravity="center"
-        android:text="FOOTER"
+        android:text="@string/cube_demo_grid_increase_height"
         android:textColor="@color/cube_mints_white"
         android:textSize="14dp" />
 </FrameLayout>
