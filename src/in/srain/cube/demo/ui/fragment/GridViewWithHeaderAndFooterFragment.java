@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.data.ImageListData;
 import in.srain.cube.demo.data.ImageListItem;
@@ -13,6 +15,7 @@ import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.mints.base.TitleBaseFragment;
 import in.srain.cube.request.CacheAbleRequest;
+import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.GridViewWithHeaderAndFooter;
 import in.srain.cube.views.list.ListViewDataAdapter;
 import in.srain.cube.views.ptr.PtrClassicFrameLayout;
@@ -24,6 +27,8 @@ public class GridViewWithHeaderAndFooterFragment extends TitleBaseFragment {
     private ImageLoader mImageLoader;
     private ListViewDataAdapter<ImageListItem> mAdapter;
     private PtrClassicFrameLayout mPtrFrame;
+    private View mHeaderView;
+    private TextView mHeaderTextView;
 
     @Override
     protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,8 +40,9 @@ public class GridViewWithHeaderAndFooterFragment extends TitleBaseFragment {
 
         final GridViewWithHeaderAndFooter gridView = (GridViewWithHeaderAndFooter) view.findViewById(R.id.grid_view_with_header_and_footer);
 
-        View headerView = inflater.inflate(R.layout.grid_view_header, null);
-        headerView.setOnClickListener(new View.OnClickListener() {
+        mHeaderView = inflater.inflate(R.layout.grid_view_header, null);
+        mHeaderTextView = (TextView) mHeaderView.findViewById(R.id.grid_view_header_text_view);
+        mHeaderView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPtrFrame.autoRefresh();
@@ -44,7 +50,7 @@ public class GridViewWithHeaderAndFooterFragment extends TitleBaseFragment {
         });
 
         View footerView = inflater.inflate(R.layout.grid_view_footer, null);
-        gridView.addHeaderView(headerView);
+        gridView.addHeaderView(mHeaderView);
         gridView.addFooterView(footerView);
 
         mAdapter = new ListViewDataAdapter<ImageListItem>();
@@ -78,6 +84,12 @@ public class GridViewWithHeaderAndFooterFragment extends TitleBaseFragment {
                 mAdapter.getDataList().addAll(data.imageList);
                 mAdapter.notifyDataSetChanged();
                 mPtrFrame.refreshComplete();
+
+                // increase height: https://github.com/liaohuqiu/android-GridViewWithHeaderAndFooter/issues/12#issuecomment-70129036
+                FrameLayout.LayoutParams lyp = (FrameLayout.LayoutParams) mHeaderTextView.getLayoutParams();
+                lyp.height = LocalDisplay.dp2px(100 + 100);
+                mHeaderTextView.setText(R.string.cube_demo_grid_header_height_changed);
+                mHeaderTextView.setLayoutParams(lyp);
             }
         });
     }
