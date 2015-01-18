@@ -105,7 +105,7 @@ public class DemoRequestData {
         requestData.addQueryData("start", start);
         requestData.addQueryData("num", num);
 
-        request.setInitDataPath("request_init/demo/image-list.json");
+        request.setAssertInitDataPath("request_init/demo/image-list.json");
         request.setCacheKey(cacheKey);
 
         // Uncomment following line to use the data from cache when cache is available
