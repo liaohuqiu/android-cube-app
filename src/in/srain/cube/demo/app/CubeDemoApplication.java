@@ -21,6 +21,7 @@ public class CubeDemoApplication extends Application {
         super.onCreate();
         instance = this;
 
+        // init log lelve
         String environment = "dev";
         if (environment.equals("production")) {
             CLog.setLogLevel(CLog.LEVEL_ERROR);
@@ -31,19 +32,26 @@ public class CubeDemoApplication extends Application {
             CLog.setLogLevel(CLog.LEVEL_VERBOSE);
         }
 
+        // debug options
         SimpleDiskLruCache.DEBUG = true;
-
         Debug.DEBUG_LIFE_CYCLE = false;
         Debug.DEBUG_CACHE = true;
         Debug.DEBUG_IMAGE = true;
         Debug.DEBUG_REQUEST = true;
+
+        Cube.onCreate(this);
+
+        initImageLoader();
+        initRequestCache();
+    }
+
+    private void initImageLoader() {
 
         File path1 = Environment.getExternalStoragePublicDirectory("cube/test1/a/b/c");
         ImageLoaderFactory.customizeCache(
                 this,
                 // memory size
                 1024 * 10,
-                // ImageLoaderFactory.getDefaultMemoryCacheSizeInKB(),
                 // disk cache directory
                 path1.getAbsolutePath(),
                 // disk cache size
@@ -51,8 +59,11 @@ public class CubeDemoApplication extends Application {
         );
 
         ImageLoaderFactory.setDefaultImageResizer(DemoDuiTangImageResizer.getInstance());
+    }
+
+    private void initRequestCache() {
         String dir = "request-cache";
         RequestCacheManager.init(this, dir, 1024 * 10, 1024 * 10);
-        Cube.onCreate(this);
     }
+
 }

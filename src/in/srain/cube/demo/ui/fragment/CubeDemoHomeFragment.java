@@ -17,6 +17,7 @@ import in.srain.cube.mints.base.MenuItemFragment;
 import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.list.ListViewDataAdapter;
 import in.srain.cube.views.list.ViewHolderBase;
+import in.srain.cube.views.loadmore.LoadMoreContainer;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
@@ -24,10 +25,18 @@ import in.srain.cube.views.ptr.header.StoreHouseHeader;
 
 import java.util.ArrayList;
 
-public class DemoHomeFragment extends MenuItemFragment {
+public class CubeDemoHomeFragment extends MenuItemFragment {
 
     @Override
     protected void addItemInfo(ArrayList<MenuItemInfo> itemInfos) {
+
+        itemInfos.add(newItemInfo(R.string.cube_demo_local_cache, "#4d90fe", new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                getContext().pushFragmentToBackStack(LocalCacheFragment.class, null);
+            }
+        }));
 
         itemInfos.add(newItemInfo(R.string.cube_demo_block_image_loader, "#4d90fe", new OnClickListener() {
 

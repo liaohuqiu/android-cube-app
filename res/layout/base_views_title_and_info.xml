@@ -14,15 +14,13 @@
         android:paddingBottom="10dp"
         android:textSize="15sp" />
 
-    <TextView
+    <EditText
         android:id="@+id/tv_views_title_and_value_value"
-        android:textIsSelectable="true"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/selector_border_normal"
         android:gravity="left|center_vertical"
         android:layout_marginLeft="15dp"
-        android:hint="@null"
         android:textColor="@color/cube_mints_base_font_color" />
 
 </LinearLayout>

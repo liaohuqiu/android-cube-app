@@ -2,7 +2,7 @@ package in.srain.cube.demo.base;
 
 import android.os.Bundle;
 import in.srain.cube.demo.R;
-import in.srain.cube.demo.ui.fragment.DemoHomeFragment;
+import in.srain.cube.demo.ui.fragment.CubeDemoHomeFragment;
 import in.srain.cube.mints.base.MintsBaseActivity;
 
 public class HomeActivity extends MintsBaseActivity {
@@ -11,7 +11,7 @@ public class HomeActivity extends MintsBaseActivity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_main);
-        pushFragmentToBackStack(DemoHomeFragment.class, null);
+        pushFragmentToBackStack(CubeDemoHomeFragment.class, null);
     }
 
     protected String getCloseWarning() {
