@@ -42,7 +42,7 @@ public class CacheAbleRequestDemoFragment extends TitleBaseFragment {
             }
         }).tryToRegisterIfNot();
 
-        TextView textView = (TextView) view.findViewById(R.id.form_base_button);
+        TextView textView = (TextView) view.findViewById(R.id.request_cache_demo_btn_use_cache_anyway);
         textView.setText(R.string.cube_demo_cache_manager_clear_cache);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
