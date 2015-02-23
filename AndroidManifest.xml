@@ -20,7 +20,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/CubeTheme.NoWindowAniAndNoTitle">
-        <activity android:name="in.srain.cube.demo.base.HomeActivity">
+        <activity android:name=".base.DemoHomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

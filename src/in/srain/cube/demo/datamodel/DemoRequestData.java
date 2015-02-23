@@ -110,7 +110,7 @@ public class DemoRequestData {
 
         // Uncomment following line to use the data from cache when cache is available
         // no matter whether it is expired or not.
-        // request.useCacheAnyway(true);
+        // request.setUseCacheAnyway(true);
 
         // When cache is available and request time has exceeded the timeout time,
         // cache data will be used.

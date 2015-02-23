@@ -92,7 +92,7 @@ public class LocalCacheFragment extends TitleBaseFragment {
 
                     @Override
                     public String createDataForCache(Query<JsonData> query) {
-                        CLog.d("test", "createDataForCache");
+                        CLog.d("test", "onNoCacheData");
                         return null;
                     }
                 };

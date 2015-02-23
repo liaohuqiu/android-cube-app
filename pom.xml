@@ -48,7 +48,7 @@
             <groupId>in.srain.cube</groupId>
             <artifactId>cube-sdk</artifactId>
             <type>aar</type>
-            <version>1.0.43-SNAPSHOT</version>
+            <version>1.0.44.6-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
                     <groupId>in.srain.cube</groupId>
@@ -71,32 +71,6 @@
         <android_maven_plugin_version>3.8.2</android_maven_plugin_version>
         <android_compile_api_level>16</android_compile_api_level>
     </properties>
-
-    <repositories>
-        <repository>
-            <id>central</id>
-            <url>https://oss.sonatype.org/content/repositories/releases</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-
-            </snapshots>
-        </repository>
-        <repository>
-            <id>snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-                <updatePolicy>always</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
 
     <build>
         <finalName>${project.artifactId}</finalName>

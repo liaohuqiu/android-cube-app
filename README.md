@@ -6,7 +6,7 @@
 
 *   support-v4, 版本: r7
 *   clog, 版本: 1.0.2, https://github.com/liaohuqiu/android-CLog
-*   cube-sdk, 版本: 1.0.43-SNAPSHOT, https://github.com/etao-open-source/cube-sdk
+*   cube-sdk, 版本: 1.0.44.6-SNAPSHOT, https://github.com/etao-open-source/cube-sdk
 *   ultra-pull-to-refresh, 版本: 1.0.6, https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
 *   event-bus, 版本: 1.3.4, https://github.com/square/otto
 
@@ -32,5 +32,4 @@
 * 博客: http://www.liaohuqiu.net
 * QQ 群: 271918140
 * srain@php.net
-
 * twitter: https://twitter.com/liaohuqiu

@@ -38,7 +38,7 @@ public class CacheAbleRequestData {
         };
 
         request.setCacheAbleRequestHandler(handler);
-        request.useCacheAnyway(useCacheAnyway);
+        request.setUseCacheAnyway(useCacheAnyway);
         request.setTimeout(1000);
 
         String cacheKey = "api/get-server-time";
