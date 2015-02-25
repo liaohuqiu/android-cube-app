@@ -13,7 +13,7 @@ import in.srain.cube.image.ImageTask;
 import in.srain.cube.image.iface.ImageLoadHandler;
 import in.srain.cube.mints.base.TitleBaseFragment;
 import in.srain.cube.util.CLog;
-import in.srain.cube.util.Debug;
+import in.srain.cube.util.CubeDebug;
 
 public class PreLoadImageFragment extends TitleBaseFragment {
 
@@ -51,12 +51,12 @@ public class PreLoadImageFragment extends TitleBaseFragment {
         ImageLoadHandler preLoadHandler = new ImageLoadHandler() {
             @Override
             public void onLoading(ImageTask imageTask, CubeImageView cubeImageView) {
-                CLog.d(Debug.DEBUG_IMAGE_LOG_TAG, "onLoading: %s", imageTask.getRemoteUrl());
+                CLog.d(CubeDebug.DEBUG_IMAGE_LOG_TAG, "onLoading: %s", imageTask.getRemoteUrl());
             }
 
             @Override
             public void onLoadFinish(ImageTask imageTask, CubeImageView cubeImageView, BitmapDrawable drawable) {
-                CLog.d(Debug.DEBUG_IMAGE_LOG_TAG, "onLoadFinish: %s", imageTask.getRemoteUrl());
+                CLog.d(CubeDebug.DEBUG_IMAGE_LOG_TAG, "onLoadFinish: %s", imageTask.getRemoteUrl());
                 // imageView.loadImage(imageLoader, imageTask.getRemoteUrl());
 
                 // save to disk
@@ -65,7 +65,7 @@ public class PreLoadImageFragment extends TitleBaseFragment {
 
             @Override
             public void onLoadError(ImageTask imageTask, CubeImageView imageView, int errorCode) {
-                CLog.e(Debug.DEBUG_IMAGE_LOG_TAG, "onLoadError: %s", imageTask.getRemoteUrl());
+                CLog.e(CubeDebug.DEBUG_IMAGE_LOG_TAG, "onLoadError: %s", imageTask.getRemoteUrl());
             }
         };
         preLoadImageLoader.setImageLoadHandler(preLoadHandler);

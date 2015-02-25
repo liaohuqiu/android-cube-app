@@ -4,7 +4,7 @@ vars = {
         'clog_version': '1.0.2',
         'ptr_lib_version': '1.0.6',
         'event_bus_version': '1.3.4',
-        'cube_sdk_version': '1.0.44.6-SNAPSHOT',
+        'cube_sdk_version': '1.0.44.7-SNAPSHOT',
         }
 
 files = [

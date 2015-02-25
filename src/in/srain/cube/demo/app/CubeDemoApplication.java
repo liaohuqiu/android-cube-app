@@ -8,7 +8,7 @@ import in.srain.cube.diskcache.lru.SimpleDiskLruCache;
 import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.request.RequestCacheManager;
 import in.srain.cube.util.CLog;
-import in.srain.cube.util.Debug;
+import in.srain.cube.util.CubeDebug;
 
 import java.io.File;
 
@@ -34,10 +34,10 @@ public class CubeDemoApplication extends Application {
 
         // debug options
         SimpleDiskLruCache.DEBUG = true;
-        Debug.DEBUG_LIFE_CYCLE = false;
-        Debug.DEBUG_CACHE = true;
-        Debug.DEBUG_IMAGE = true;
-        Debug.DEBUG_REQUEST = true;
+        CubeDebug.DEBUG_LIFE_CYCLE = false;
+        CubeDebug.DEBUG_CACHE = true;
+        CubeDebug.DEBUG_IMAGE = true;
+        CubeDebug.DEBUG_REQUEST = true;
 
         Cube.onCreate(this);
 

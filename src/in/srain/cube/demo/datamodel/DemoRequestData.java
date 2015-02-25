@@ -35,12 +35,12 @@ public class DemoRequestData {
 
             @Override
             public void onRequestFinish(JsonData data) {
-                CLog.d("demo-request", "onRequestFinish");
+                CLog.d("demo-request", "onRequestFinish: %s", data);
                 handler.onRequestFinish(data);
             }
         };
 
-        SimpleRequest<JsonData> request = new SimpleRequest<JsonData>(handler);
+        SimpleRequest<JsonData> request = new SimpleRequest<JsonData>(requestHandler);
         String url = "http://cube-server.liaohuqiu.net/api_demo/reverse.php?str=" + str;
         request.getRequestData().setRequestUrl(url);
         request.send();

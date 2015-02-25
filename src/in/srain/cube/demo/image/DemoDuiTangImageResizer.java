@@ -3,7 +3,7 @@ package in.srain.cube.demo.image;
 import in.srain.cube.image.ImageTask;
 import in.srain.cube.image.impl.DefaultImageResizer;
 import in.srain.cube.util.CLog;
-import in.srain.cube.util.Debug;
+import in.srain.cube.util.CubeDebug;
 
 /**
  * Created by srain on 8/19/14.
@@ -31,7 +31,7 @@ public class DemoDuiTangImageResizer extends DefaultImageResizer {
         String url = imageTask.getOriginUrl();
         int size = findBestCDNSize(CDN_FIX_WIDTH_SIZE, imageTask.getRequestSize().x, true);
         url = url.replace(TAG, TAG + DOT + size + SP + size);
-        if (Debug.DEBUG_IMAGE) {
+        if (CubeDebug.DEBUG_IMAGE) {
             CLog.d("cube_image", "getRemoteUrl: %s %s", imageTask.getRequestSize(), url);
         }
         return url;
