@@ -6,14 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListView;
-import com.squareup.otto.Subscribe;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.base.DemoTitleBaseFragment;
-import in.srain.cube.demo.data.ImageListData;
+import in.srain.cube.demo.event.ImageListDataEvent;
 import in.srain.cube.demo.data.ImageListItem;
 import in.srain.cube.demo.datamodel.ImageListDataModel;
-import in.srain.cube.demo.event.EventBus;
-import in.srain.cube.demo.event.SimpleEventHandler;
+import in.srain.cube.demo.event.DemoSimpleEventHandler;
+import in.srain.cube.demo.event.EventCenter;
 import in.srain.cube.demo.ui.viewholders.ImageListItemSmallImageViewHolder;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
@@ -100,10 +99,9 @@ public class LoadMoreListViewFragment extends DemoTitleBaseFragment {
             }
         });
 
-        EventBus.bindContainerAndHandler(this, new SimpleEventHandler() {
+        EventCenter.bindContainerAndHandler(this, new DemoSimpleEventHandler() {
 
-            @Subscribe
-            public void onImageListDataEvent(ImageListData event) {
+            public void onEvent(ImageListDataEvent event) {
                 mPtrFrameLayout.refreshComplete();
             }
 

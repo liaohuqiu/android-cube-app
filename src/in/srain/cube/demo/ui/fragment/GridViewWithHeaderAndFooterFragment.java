@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import in.srain.cube.demo.R;
-import in.srain.cube.demo.data.ImageListData;
+import in.srain.cube.demo.event.ImageListDataEvent;
 import in.srain.cube.demo.data.ImageListItem;
-import in.srain.cube.demo.datamodel.DemoRequestData;
+import in.srain.cube.demo.datamodel.DemoRevertDataModel;
 import in.srain.cube.demo.ui.viewholders.ImageListItemMiddleImageViewHolder;
 import in.srain.cube.image.ImageLoader;
 import in.srain.cube.image.ImageLoaderFactory;
@@ -98,10 +98,10 @@ public class GridViewWithHeaderAndFooterFragment extends TitleBaseFragment {
 
     private void requestData() {
 
-        DemoRequestData.getImageList(new DemoRequestData.ImageListDataHandler() {
+        DemoRevertDataModel.getImageList(new DemoRevertDataModel.ImageListDataHandler() {
 
             @Override
-            public void onData(ImageListData data, CacheAbleRequest.ResultType type, boolean outOfDate) {
+            public void onData(ImageListDataEvent data, CacheAbleRequest.ResultType type, boolean outOfDate) {
                 mAdapter.getDataList().clear();
                 mAdapter.getDataList().addAll(data.imageList);
                 mAdapter.notifyDataSetChanged();

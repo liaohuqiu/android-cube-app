@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ly_item_search_activity_left"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:orientation="vertical">
+
+    <in.srain.cube.image.CubeImageView
+        android:id="@+id/demo_banner_item_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/demo_banner_item_title"
+        android:layout_width="match_parent"
+        android:textSize="14sp"
+        android:gravity="left|center_vertical"
+        android:ellipsize="end"
+        android:textColor="#ffffff"
+        android:background="#88000000"
+        android:layout_height="30dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

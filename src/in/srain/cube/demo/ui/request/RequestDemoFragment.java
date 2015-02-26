@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import in.srain.cube.demo.R;
-import in.srain.cube.demo.datamodel.DemoRequestData;
+import in.srain.cube.demo.datamodel.DemoRevertDataModel;
 import in.srain.cube.mints.base.TitleBaseFragment;
 import in.srain.cube.request.JsonData;
 import in.srain.cube.request.RequestJsonHandler;
@@ -43,7 +43,7 @@ public class RequestDemoFragment extends TitleBaseFragment {
                 button.setText("Requesting...");
 
                 String str = inputText.getText().toString();
-                DemoRequestData.reverse(str, new RequestJsonHandler() {
+                DemoRevertDataModel.reverse(str, new RequestJsonHandler() {
 
                     @Override
                     public void onRequestFinish(JsonData jsonData) {

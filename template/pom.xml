@@ -61,8 +61,8 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>com.squareup</groupId>
-            <artifactId>otto</artifactId>
+            <groupId>de.greenrobot</groupId>
+            <artifactId>eventbus</artifactId>
             <version>{event_bus_version}</version>
         </dependency>
     </dependencies>

@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import com.squareup.otto.Subscribe;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.datamodel.CacheAbleRequestData;
-import in.srain.cube.demo.event.EventBus;
-import in.srain.cube.demo.event.SimpleEventHandler;
+import in.srain.cube.demo.event.DemoSimpleEventHandler;
+import in.srain.cube.demo.event.EventCenter;
+import in.srain.cube.demo.event.MsgDataEvent;
 import in.srain.cube.mints.base.TitleBaseFragment;
 
 import java.text.SimpleDateFormat;
@@ -30,9 +30,9 @@ public class CacheAbleRequestDemoFragment extends TitleBaseFragment {
         mTextView = (TextView) view.findViewById(R.id.request_cache_demo_text_view);
         mScrollView = (ScrollView) view.findViewById(R.id.request_cache_demo_scroll_view);
 
-        EventBus.bindContainerAndHandler(this, new SimpleEventHandler() {
-            @Subscribe
-            public void onCacheAbleRequestMsgDataEvent(final CacheAbleRequestData.MsgDataEvent dataEvent) {
+        EventCenter.bindContainerAndHandler(this, new DemoSimpleEventHandler() {
+
+            public void onEvent(final MsgDataEvent dataEvent) {
                 mTextView.post(new Runnable() {
                     @Override
                     public void run() {

@@ -3,7 +3,9 @@ package in.srain.cube.demo.app;
 import android.app.Application;
 import android.os.Environment;
 import in.srain.cube.Cube;
+import in.srain.cube.cache.CacheManagerFactory;
 import in.srain.cube.demo.image.DemoDuiTangImageResizer;
+import in.srain.cube.demo.utils.DemoEnv;
 import in.srain.cube.diskcache.lru.SimpleDiskLruCache;
 import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.request.RequestCacheManager;
@@ -21,11 +23,13 @@ public class CubeDemoApplication extends Application {
         super.onCreate();
         instance = this;
 
-        // init log lelve
         String environment = "dev";
-        if (environment.equals("production")) {
+        DemoEnv.setEnv(environment);
+
+        // init log level
+        if (DemoEnv.isProd()) {
             CLog.setLogLevel(CLog.LEVEL_ERROR);
-        } else if (environment.equals("beta")) {
+        } else if (DemoEnv.isBeta()) {
             CLog.setLogLevel(CLog.LEVEL_WARNING);
         } else {
             // development
@@ -42,7 +46,11 @@ public class CubeDemoApplication extends Application {
         Cube.onCreate(this);
 
         initImageLoader();
+
         initRequestCache();
+
+        // init local cache, just use default
+        CacheManagerFactory.initDefaultCache(this, null, -1, -1);
     }
 
     private void initImageLoader() {

@@ -11,13 +11,14 @@ import in.srain.cube.demo.R;
 import in.srain.cube.demo.ui.activity.PagerTabIndicatorActivity;
 import in.srain.cube.demo.ui.imageloader.ImageLoaderHomeFragment;
 import in.srain.cube.demo.ui.loadmore.LoadMoreHomeFragment;
+import in.srain.cube.demo.ui.localcache.LocalCacheFragment;
+import in.srain.cube.demo.ui.localcache.LocalCacheHomeFragment;
 import in.srain.cube.demo.ui.request.RequestHomeFragment;
 import in.srain.cube.demo.ui.viewholderdemo.ViewHolderHomeFragment;
 import in.srain.cube.mints.base.MenuItemFragment;
 import in.srain.cube.util.LocalDisplay;
 import in.srain.cube.views.list.ListViewDataAdapter;
 import in.srain.cube.views.list.ViewHolderBase;
-import in.srain.cube.views.loadmore.LoadMoreContainer;
 import in.srain.cube.views.ptr.PtrDefaultHandler;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import in.srain.cube.views.ptr.PtrHandler;
@@ -29,14 +30,6 @@ public class CubeDemoHomeFragment extends MenuItemFragment {
 
     @Override
     protected void addItemInfo(ArrayList<MenuItemInfo> itemInfos) {
-
-        itemInfos.add(newItemInfo(R.string.cube_demo_local_cache, "#4d90fe", new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                getContext().pushFragmentToBackStack(LocalCacheFragment.class, null);
-            }
-        }));
 
         itemInfos.add(newItemInfo(R.string.cube_demo_block_image_loader, "#4d90fe", new OnClickListener() {
 
@@ -69,6 +62,15 @@ public class CubeDemoHomeFragment extends MenuItemFragment {
                 getContext().pushFragmentToBackStack(LoadMoreHomeFragment.class, null);
             }
         }));
+
+        itemInfos.add(newItemInfo(R.string.cube_demo_local_cache, "#4d90fe", new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                getContext().pushFragmentToBackStack(LocalCacheHomeFragment.class, null);
+            }
+        }));
+
         itemInfos.add(newItemInfo(R.string.cube_demo_request_demo, "#4d90fe", new OnClickListener() {
 
             @Override
@@ -90,14 +92,6 @@ public class CubeDemoHomeFragment extends MenuItemFragment {
             @Override
             public void onClick(View v) {
                 getContext().pushFragmentToBackStack(DotViewFragment.class, null);
-            }
-        }));
-
-        itemInfos.add(newItemInfo("More Action", "#4d90fe", new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                getContext().pushFragmentToBackStack(MoreActionViewFragment.class, null);
             }
         }));
 

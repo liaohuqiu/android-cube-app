@@ -8,7 +8,7 @@
 *   clog, 版本: {clog_version}, https://github.com/liaohuqiu/android-CLog
 *   cube-sdk, 版本: {cube_sdk_version}, https://github.com/etao-open-source/cube-sdk
 *   ultra-pull-to-refresh, 版本: {ptr_lib_version}, https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
-*   event-bus, 版本: {event_bus_version}, https://github.com/square/otto
+*   eventbus, 版本: {event_bus_version}, https://github.com/greenrobot/EventBus
 
 ### 关于Eclipse运行项目
 

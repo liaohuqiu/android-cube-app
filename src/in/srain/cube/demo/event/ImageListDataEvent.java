@@ -1,8 +1,10 @@
-package in.srain.cube.demo.data;
+package in.srain.cube.demo.event;
+
+import in.srain.cube.demo.data.ImageListItem;
 
 import java.util.ArrayList;
 
-public class ImageListData {
+public class ImageListDataEvent {
 
     public boolean success;
     public boolean hasMore;

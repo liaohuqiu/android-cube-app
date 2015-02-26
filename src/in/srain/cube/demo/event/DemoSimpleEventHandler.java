@@ -2,28 +2,28 @@ package in.srain.cube.demo.event;
 
 import in.srain.cube.app.lifecycle.LifeCycleComponent;
 
-public class SimpleEventHandler implements LifeCycleComponent {
+public class DemoSimpleEventHandler implements LifeCycleComponent {
 
     private boolean mRegistered = false;
 
-    public SimpleEventHandler register() {
-        mRegistered = true;
-        EventBus.getInstance().register(this);
+    public DemoSimpleEventHandler register() {
+        if (!mRegistered) {
+            mRegistered = true;
+            EventCenter.getInstance().register(this);
+        }
         return this;
     }
 
-    public synchronized SimpleEventHandler tryToUnregister() {
+    public synchronized DemoSimpleEventHandler tryToUnregister() {
         if (mRegistered) {
             mRegistered = false;
-            EventBus.getInstance().unregister(this);
+            EventCenter.getInstance().unregister(this);
         }
         return this;
     }
 
-    public synchronized SimpleEventHandler tryToRegisterIfNot() {
-        if (!mRegistered) {
-            register();
-        }
+    public synchronized DemoSimpleEventHandler tryToRegisterIfNot() {
+        register();
         return this;
     }
 
@@ -49,4 +49,5 @@ public class SimpleEventHandler implements LifeCycleComponent {
     public void onDestroy() {
 
     }
+
 }

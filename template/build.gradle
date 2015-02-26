@@ -132,7 +132,7 @@ task copyLibs << {
 
 dependencies {
     compile 'com.google.android:support-v4:{support_v4_version}'
-    compile 'com.squareup:otto:{event_bus_version}'
+    compile 'de.greenrobot:eventbus:{event_bus_version}'
     compile 'in.srain.cube:clog:{clog_version}'
     compile('in.srain.cube:ultra-ptr:{ptr_lib_version}@aar') {
         exclude group: 'in.srain.cube', module: 'clog'

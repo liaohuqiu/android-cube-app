@@ -1,7 +1,8 @@
 package in.srain.cube.demo.datamodel;
 
-import in.srain.cube.demo.data.ImageListData;
+import in.srain.cube.demo.event.ImageListDataEvent;
 import in.srain.cube.demo.data.ImageListItem;
+import in.srain.cube.demo.request.API;
 import in.srain.cube.request.*;
 import in.srain.cube.util.CLog;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
  *
  * @author http://www.liaohuqiu.net
  */
-public class DemoRequestData {
+public class DemoRevertDataModel {
 
     /**
      * Demo for using {@link SimpleRequest}
@@ -41,8 +42,10 @@ public class DemoRequestData {
         };
 
         SimpleRequest<JsonData> request = new SimpleRequest<JsonData>(requestHandler);
-        String url = "http://cube-server.liaohuqiu.net/api_demo/reverse.php?str=" + str;
-        request.getRequestData().setRequestUrl(url);
+        RequestData requestData = request.getRequestData();
+        requestData.setRequestUrl(API.API_REVERT);
+        requestData.addQueryData("str", str);
+
         request.send();
     }
 
@@ -52,14 +55,14 @@ public class DemoRequestData {
 
     public static void getImageList(final ImageListDataHandler handler, int start, int num, boolean nocache) {
 
-        CacheAbleRequestHandler requestHandler = new CacheAbleRequestHandler<ImageListData>() {
+        CacheAbleRequestHandler requestHandler = new CacheAbleRequestHandler<ImageListDataEvent>() {
             @Override
-            public void onCacheData(ImageListData data, boolean outOfDate) {
+            public void onCacheData(ImageListDataEvent data, boolean outOfDate) {
                 CLog.d("demo-request", "data has been loaded form cache, out of date: %s", outOfDate);
             }
 
             @Override
-            public void onCacheAbleRequestFinish(ImageListData data, CacheAbleRequest.ResultType type, boolean outOfDate) {
+            public void onCacheAbleRequestFinish(ImageListDataEvent data, CacheAbleRequest.ResultType type, boolean outOfDate) {
 
                 CLog.d("demo-request",
                         "onData: result type: %s, out of date: %s", type, outOfDate);
@@ -68,7 +71,7 @@ public class DemoRequestData {
             }
 
             @Override
-            public ImageListData processOriginData(JsonData jsonData) {
+            public ImageListDataEvent processOriginData(JsonData jsonData) {
                 JsonData data = jsonData.optJson("data");
                 ArrayList<JsonData> rawList = data.optJson("list").toArrayList();
 
@@ -78,11 +81,11 @@ public class DemoRequestData {
                     imageList.add(item);
                 }
 
-                ImageListData imageListData = new ImageListData();
-                imageListData.imageList = imageList;
-                imageListData.hasMore = data.optBoolean("has_more");
-                imageListData.success = true;
-                return imageListData;
+                ImageListDataEvent imageListDataEvent = new ImageListDataEvent();
+                imageListDataEvent.imageList = imageList;
+                imageListDataEvent.hasMore = data.optBoolean("has_more");
+                imageListDataEvent.success = true;
+                return imageListDataEvent;
             }
 
             @Override
@@ -91,7 +94,7 @@ public class DemoRequestData {
             }
 
             @Override
-            public void onRequestFinish(ImageListData data) {
+            public void onRequestFinish(ImageListDataEvent data) {
                 CLog.d("demo-request", "onRequestFinish");
             }
         };
@@ -99,7 +102,7 @@ public class DemoRequestData {
         CacheAbleRequest<JsonData> request = new CacheAbleRequest<JsonData>(requestHandler);
 
         String cacheKey = String.format("image-list-%s-%s", start, num);
-        String url = ConfigData.API_URL_PRE + "/image-list.php";
+        String url = API.API_IMAGE_LIST;
         RequestData requestData = request.getRequestData();
         requestData.setRequestUrl(url);
         requestData.addQueryData("start", start);
@@ -122,6 +125,6 @@ public class DemoRequestData {
      * customized callback, notified when data loaded
      */
     public static interface ImageListDataHandler {
-        public void onData(ImageListData data, CacheAbleRequest.ResultType type, boolean outOfDate);
+        public void onData(ImageListDataEvent data, CacheAbleRequest.ResultType type, boolean outOfDate);
     }
 }

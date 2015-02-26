@@ -1,30 +1,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:cube_dotview="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
-    <RelativeLayout
+    <in.srain.cube.views.banner.SliderBanner
+        android:id="@+id/demo_slider_banner"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="200dp" >
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        app:slider_banner_indicator="@+id/demo_slider_banner_indicator"
+        app:slider_banner_pager="@+id/demo_slider_banner_pager">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/demo_slider_banner_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <in.srain.cube.views.DotView
-            android:id="@+id/dot_view"
+            android:id="@+id/demo_slider_banner_indicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            cube_dotview:dot_radius="3dp"
-            cube_dotview:dot_selected_color="0xFF377BEE"
-            cube_dotview:dot_span="18dp"
-            cube_dotview:dot_unselected_color="0xFFC5CEDB" />
-    </RelativeLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginRight="15dp"
+            app:dot_radius="4dp"
+            app:dot_selected_color="0xffffffff"
+            app:dot_span="8dp"
+            app:dot_unselected_color="0x80ffffff" />
+    </in.srain.cube.views.banner.SliderBanner>
 
-    <Button
-        android:id="@+id/bt_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/next_dot" />
+    <TextView
+        android:id="@+id/demo_slider_banner_next_page"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/selector_border"
+        android:text="@string/demo_slider_banner_next_page"
+        android:clickable="true"
+        android:textColor="@color/button_dark_text"
+        android:gravity="center" />
 
 </LinearLayout>

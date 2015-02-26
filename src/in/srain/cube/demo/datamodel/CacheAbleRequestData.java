@@ -1,6 +1,8 @@
 package in.srain.cube.demo.datamodel;
 
-import in.srain.cube.demo.event.EventBus;
+import in.srain.cube.demo.event.EventCenter;
+import in.srain.cube.demo.event.MsgDataEvent;
+import in.srain.cube.demo.request.API;
 import in.srain.cube.demo.request.DemoCacheRequest;
 import in.srain.cube.request.*;
 
@@ -13,22 +15,22 @@ public class CacheAbleRequestData {
 
             @Override
             public JsonData processOriginData(JsonData jsonData) {
-                EventBus.getInstance().post(new MsgDataEvent("processOriginData"));
+                EventCenter.getInstance().post(new MsgDataEvent("processOriginData"));
                 return jsonData;
             }
 
             @Override
             public void onCacheAbleRequestFinish(JsonData data, CacheAbleRequest.ResultType type, boolean outOfDate) {
-                EventBus.getInstance().post(new MsgDataEvent(
+                EventCenter.getInstance().post(new MsgDataEvent(
                         "onCacheAbleRequestFinish, result type: %s, out of date: %s", type, outOfDate));
-                EventBus.getInstance().post(new MsgDataEvent(
+                EventCenter.getInstance().post(new MsgDataEvent(
                         "time: %s", data.optJson("data").optString("time")));
             }
 
             @Override
             public void onCacheData(JsonData data, boolean outOfDate) {
                 super.onCacheData(data, outOfDate);
-                EventBus.getInstance().post(new MsgDataEvent(
+                EventCenter.getInstance().post(new MsgDataEvent(
                         "onCacheData, out of date: %s", outOfDate));
             }
 
@@ -45,19 +47,8 @@ public class CacheAbleRequestData {
         request.setCacheTime(30).setCacheKey(cacheKey);
         request.setDisableCache(disableCache);
 
-        request.getRequestData().setRequestUrl(ConfigData.API_URL_PRE + "/get-image");
+        request.getRequestData().setRequestUrl(API.API_GET_IMAGE);
         request.send();
     }
 
-    public static class MsgDataEvent {
-        public String msg;
-
-        public MsgDataEvent(String format, Object... args) {
-            if (args.length > 0) {
-                msg = String.format(format, args);
-            } else {
-                msg = format;
-            }
-        }
-    }
 }

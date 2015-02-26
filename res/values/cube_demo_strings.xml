@@ -39,6 +39,7 @@
     <string name="cube_demo_local_cache">Local Cache</string>
     <string name="cube_demo_local_cache_read_cache">Read Cache</string>
     <string name="cube_demo_local_cache_set_cache">Set Cache</string>
+    <string name="cube_demo_local_cache_management">Local Cache Manager</string>
 
     <string name="cube_demo_cache_manager_clear_cache">Clear Cache</string>
 

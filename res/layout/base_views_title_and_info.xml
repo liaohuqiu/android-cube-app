@@ -21,6 +21,7 @@
         android:background="@drawable/selector_border_normal"
         android:gravity="left|center_vertical"
         android:layout_marginLeft="15dp"
+        android:textSize="12sp"
         android:textColor="@color/cube_mints_base_font_color" />
 
 </LinearLayout>

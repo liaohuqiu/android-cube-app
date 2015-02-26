@@ -2,9 +2,9 @@ import os
 vars = {
         'support_v4_version': 'r7',
         'clog_version': '1.0.2',
-        'ptr_lib_version': '1.0.6',
-        'event_bus_version': '1.3.4',
-        'cube_sdk_version': '1.0.44.8-SNAPSHOT',
+        'ptr_lib_version': '1.0.8.1-SNAPSHOT',
+        'event_bus_version': '2.4.0',
+        'cube_sdk_version': '1.0.44.9-SNAPSHOT',
         }
 
 files = [

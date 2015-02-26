@@ -1,4 +1,4 @@
-package in.srain.cube.demo.ui.fragment;
+package in.srain.cube.demo.ui.localcache;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import in.srain.cube.cache.CacheManager;
 import in.srain.cube.cache.CacheManagerFactory;
 import in.srain.cube.cache.Query;
@@ -66,6 +67,7 @@ public class LocalCacheFragment extends TitleBaseFragment {
 
         CacheManager cacheManager = CacheManagerFactory.getDefault();
         cacheManager.setCacheData(KEY_FOR_USER_CACHE, jsonData.toString());
+        Toast.makeText(getActivity(), "Set cache successfully.", Toast.LENGTH_SHORT).show();
     }
 
     private TitleAndValue addTitleAndValue(String title) {
@@ -76,30 +78,29 @@ public class LocalCacheFragment extends TitleBaseFragment {
     }
 
     private void readFromCache() {
-        SimpleExecutor.getInstance().execute(new Runnable() {
+
+        Query<JsonData> query = new Query<JsonData>(CacheManagerFactory.getDefault());
+        query.setCacheTime(86400 * 10);
+        QueryJsonHandler queryJsonHandler = new QueryJsonHandler() {
             @Override
-            public void run() {
-
-                Query<JsonData> query = new Query<JsonData>(CacheManagerFactory.getDefault());
-                query.setCacheTime(86400 * 10);
-                QueryJsonHandler queryJsonHandler = new QueryJsonHandler() {
-                    @Override
-                    public void onQueryFinish(Query.RequestType requestType, JsonData cacheData, boolean outOfDate) {
-                        CLog.d("test", "onQueryFinish: %s %s %s", requestType, cacheData, outOfDate);
-                        mUid.value(cacheData.optString("uid"));
-                        mName.value(cacheData.optString("name"));
-                    }
-
-                    @Override
-                    public String createDataForCache(Query<JsonData> query) {
-                        CLog.d("test", "onNoCacheData");
-                        return null;
-                    }
-                };
-                query.setHandler(queryJsonHandler);
-                query.setCacheKey(KEY_FOR_USER_CACHE);
-                query.query();
+            public void onQueryFinish(Query.RequestType requestType, JsonData cacheData, boolean outOfDate) {
+                CLog.d("test", "onQueryFinish: %s %s %s", requestType, cacheData, outOfDate);
+                if (cacheData != null) {
+                    mUid.value(cacheData.optString("uid"));
+                    mName.value(cacheData.optString("name"));
+                } else {
+                    Toast.makeText(getActivity(), "No cache is avariable, set first.", 0).show();
+                }
             }
-        });
+
+            @Override
+            public String createDataForCache(Query<JsonData> query) {
+                CLog.d("test", "onNoCacheData");
+                return null;
+            }
+        };
+        query.setHandler(queryJsonHandler);
+        query.setCacheKey(KEY_FOR_USER_CACHE);
+        query.query();
     }
 }
