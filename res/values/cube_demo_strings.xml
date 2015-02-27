@@ -23,6 +23,7 @@
     <string name="cube_demo_view_holder_inner_instance_with_args_class">as Inner Instance Class with Args</string>
 
     <string name="cube_demo_load_more_demo">Load More for ListView and GridView</string>
+    <string name="cube_demo_load_more_demo_title">Load More</string>
     <string name="cube_demo_load_more_list_view">Load More for ListView</string>
     <string name="cube_demo_load_more_grid_view">Load More for GridView</string>
 

@@ -4,10 +4,12 @@ import android.app.Application;
 import android.os.Environment;
 import in.srain.cube.Cube;
 import in.srain.cube.cache.CacheManagerFactory;
+import in.srain.cube.demo.R;
 import in.srain.cube.demo.image.DemoDuiTangImageResizer;
 import in.srain.cube.demo.utils.DemoEnv;
 import in.srain.cube.diskcache.lru.SimpleDiskLruCache;
 import in.srain.cube.image.ImageLoaderFactory;
+import in.srain.cube.image.impl.DefaultImageLoadHandler;
 import in.srain.cube.request.RequestCacheManager;
 import in.srain.cube.util.CLog;
 import in.srain.cube.util.CubeDebug;
@@ -66,6 +68,10 @@ public class CubeDemoApplication extends Application {
                 ImageLoaderFactory.DEFAULT_FILE_CACHE_SIZE_IN_KB
         );
 
+        DefaultImageLoadHandler handler = new DefaultImageLoadHandler(this);
+        handler.setLoadingImageColor("#999999");
+
+        ImageLoaderFactory.setDefaultImageLoadHandler(handler);
         ImageLoaderFactory.setDefaultImageResizer(DemoDuiTangImageResizer.getInstance());
     }
 

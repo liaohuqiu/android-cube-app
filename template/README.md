@@ -2,6 +2,15 @@
 
 这个项目的目的是作为一个APP开发参考。
 
+#### 功能点
+
+* 加载更多
+    <div class='row'>
+        <img src='http://srain-github.qiniudn.com/load-more/load-more-for-list-view.gif' width="300px" style='border: #f1f1f1 solid 1px'/>
+        <img src='http://srain-github.qiniudn.com/load-more/load-more-for-grid-view.gif' width="300px" style='border: #f1f1f1 solid 1px'/>
+    </div>
+
+
 ### 依赖
 
 *   support-v4, 版本: {support_v4_version}

@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class ImageListDataModel extends PagedListDataModel<ImageListItem> {
 
-    public ImageListDataModel() {
-        mListPageInfo = new ListPageInfo<ImageListItem>(20);
+    public ImageListDataModel(int numPerPage) {
+        mListPageInfo = new ListPageInfo<ImageListItem>(numPerPage);
     }
 
     @Override

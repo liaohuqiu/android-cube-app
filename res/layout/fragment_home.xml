@@ -19,6 +19,7 @@
         <ListView
             android:id="@+id/fragment_home_menu_list_view"
             android:layout_width="match_parent"
+            android:overScrollMode="never"
             android:layout_height="wrap_content"
             android:background="@color/cube_mints_white"
             android:divider="@null"

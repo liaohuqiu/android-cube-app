@@ -44,7 +44,7 @@ public class LoadMoreGridViewFragment extends DemoTitleBaseFragment {
         mImageLoader = ImageLoaderFactory.create(getContext()).attachToCubeFragment(this);
 
         // set up data
-        mDataModel = new ImageListDataModel();
+        mDataModel = new ImageListDataModel(8);
 
         mAdapter = new PagedListViewDataAdapter<ImageListItem>();
         mAdapter.setViewHolderClass(this, ImageListItemMiddleImageViewHolder.class, mImageLoader);
@@ -54,15 +54,8 @@ public class LoadMoreGridViewFragment extends DemoTitleBaseFragment {
         final View view = inflater.inflate(R.layout.fragment_load_more_grid_view, null);
         // pull to refresh
         mPtrFrameLayout = (PtrFrameLayout) view.findViewById(R.id.load_more_grid_view_ptr_frame);
-        MaterialHeader ptrHeader = new MaterialHeader(getContext());
-        PtrFrameLayout.LayoutParams lp = new PtrFrameLayout.LayoutParams(-1, -2);
-        ptrHeader.setLayoutParams(lp);
-        ptrHeader.setPadding(0, LocalDisplay.dp2px(15), 0, LocalDisplay.dp2px(15));
-        ptrHeader.setPtrFrameLayout(mPtrFrameLayout);
 
         mPtrFrameLayout.setLoadingMinTime(1000);
-        mPtrFrameLayout.setHeaderView(ptrHeader);
-        mPtrFrameLayout.addPtrUIHandler(ptrHeader);
         mPtrFrameLayout.setPtrHandler(new PtrHandler() {
             @Override
             public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {

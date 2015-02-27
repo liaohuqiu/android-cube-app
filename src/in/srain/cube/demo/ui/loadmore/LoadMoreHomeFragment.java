@@ -31,6 +31,6 @@ public class LoadMoreHomeFragment extends DemoBlockMenuFragment {
     @Override
     protected void setupViews(View view) {
         super.setupViews(view);
-        setHeaderTitle(R.string.cube_demo_load_more_demo);
+        setHeaderTitle(R.string.cube_demo_load_more_demo_title);
     }
 }

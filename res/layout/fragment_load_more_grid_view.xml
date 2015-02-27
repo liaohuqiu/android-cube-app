@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/cube_mints_f1f1f1">
 
-    <in.srain.cube.views.ptr.PtrFrameLayout
+    <in.srain.cube.views.ptr.PtrClassicFrameLayout
         android:id="@+id/load_more_grid_view_ptr_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -30,5 +30,5 @@
                 android:stretchMode="columnWidth" />
 
         </in.srain.cube.views.loadmore.LoadMoreGridViewContainer>
-    </in.srain.cube.views.ptr.PtrFrameLayout>
+    </in.srain.cube.views.ptr.PtrClassicFrameLayout>
 </RelativeLayout>
