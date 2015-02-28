@@ -26,6 +26,7 @@
     <string name="cube_demo_load_more_demo_title">Load More</string>
     <string name="cube_demo_load_more_list_view">Load More for ListView</string>
     <string name="cube_demo_load_more_grid_view">Load More for GridView</string>
+    <string name="cube_demo_load_more_error">Load More Error for ListView</string>
 
     <string name="cube_demo_grid_view_with_header_and_footer">GridViewWithHeaderAndFooter</string>
     <string name="cube_demo_grid_increase_height">Click to increase height.</string>
