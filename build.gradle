@@ -137,7 +137,7 @@ dependencies {
     compile('in.srain.cube:ultra-ptr:1.0.8.1-SNAPSHOT@aar') {
         exclude group: 'in.srain.cube', module: 'clog'
     }
-    compile('in.srain.cube:cube-sdk:1.0.44.10-SNAPSHOT@aar') {
+    compile('in.srain.cube:cube-sdk:1.0.44.11-SNAPSHOT@aar') {
         exclude group: 'in.srain.cube', module: 'clog'
     }
 }

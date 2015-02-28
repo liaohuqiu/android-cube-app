@@ -2,11 +2,20 @@
 
 这个项目的目的是作为一个APP开发参考。
 
+#### 功能点
+
+* 加载更多
+    <div class='row'>
+        <img src='http://srain-github.qiniudn.com/load-more/load-more-for-list-view.gif' width="300px" style='border: #f1f1f1 solid 1px'/>
+        <img src='http://srain-github.qiniudn.com/load-more/load-more-for-grid-view.gif' width="300px" style='border: #f1f1f1 solid 1px'/>
+    </div>
+
+
 ### 依赖
 
 *   support-v4, 版本: r7
 *   clog, 版本: 1.0.2, https://github.com/liaohuqiu/android-CLog
-*   cube-sdk, 版本: 1.0.44.10-SNAPSHOT, https://github.com/etao-open-source/cube-sdk
+*   cube-sdk, 版本: 1.0.44.11-SNAPSHOT, https://github.com/etao-open-source/cube-sdk
 *   ultra-pull-to-refresh, 版本: 1.0.8.1-SNAPSHOT, https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
 *   eventbus, 版本: 2.4.0, https://github.com/greenrobot/EventBus
 
