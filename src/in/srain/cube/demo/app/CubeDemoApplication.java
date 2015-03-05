@@ -4,6 +4,7 @@ import android.app.Application;
 import android.os.Environment;
 import in.srain.cube.Cube;
 import in.srain.cube.cache.CacheManagerFactory;
+import in.srain.cube.demo.BuildConfig;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.image.DemoDuiTangImageResizer;
 import in.srain.cube.demo.utils.DemoEnv;
@@ -25,14 +26,12 @@ public class CubeDemoApplication extends Application {
         super.onCreate();
         instance = this;
 
-        String environment = "dev";
-        DemoEnv.setEnv(environment);
+        boolean isProd = !BuildConfig.DEBUG;
+        DemoEnv.setIsProd(isProd);
 
         // init log level
         if (DemoEnv.isProd()) {
             CLog.setLogLevel(CLog.LEVEL_ERROR);
-        } else if (DemoEnv.isBeta()) {
-            CLog.setLogLevel(CLog.LEVEL_WARNING);
         } else {
             // development
             CLog.setLogLevel(CLog.LEVEL_VERBOSE);
@@ -69,7 +68,7 @@ public class CubeDemoApplication extends Application {
         );
 
         DefaultImageLoadHandler handler = new DefaultImageLoadHandler(this);
-        handler.setLoadingImageColor("#999999");
+        // handler.setLoadingImageColor("#999999");
 
         ImageLoaderFactory.setDefaultImageLoadHandler(handler);
         ImageLoaderFactory.setDefaultImageResizer(DemoDuiTangImageResizer.getInstance());

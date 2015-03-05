@@ -2,19 +2,13 @@ package in.srain.cube.demo.utils;
 
 public class DemoEnv {
 
-    private static String ENV_PROD = "production";
-    private static String ENV_BETA = "production";
-    private static String sEnv = "";
+    private static boolean sIsProd = true;
 
     public static boolean isProd() {
-        return sEnv != null && sEnv.equals(ENV_PROD);
+        return sIsProd;
     }
 
-    public static boolean isBeta() {
-        return sEnv != null && sEnv.equals(ENV_BETA);
-    }
-
-    public static void setEnv(String env) {
-        sEnv = env;
+    public static void setIsProd(boolean isProd) {
+        sIsProd = isProd;
     }
 }
