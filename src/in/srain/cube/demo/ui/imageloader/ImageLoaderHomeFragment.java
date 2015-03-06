@@ -95,6 +95,13 @@ public class ImageLoaderHomeFragment extends DemoBlockMenuFragment {
                 getContext().pushFragmentToBackStack(ImageLoaderManagementFragment.class, null);
             }
         }));
+        itemInfos.add(newItemInfo(R.string.cube_demo_rounded_image, "#4d90fe", new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                getContext().pushFragmentToBackStack(RoundedImageFragment.class, null);
+            }
+        }));
     }
 
     @Override

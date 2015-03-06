@@ -1,21 +1,21 @@
 package in.srain.cube.demo.image;
 
 import in.srain.cube.image.ImageTask;
-import in.srain.cube.image.impl.DefaultImageResizer;
+import in.srain.cube.image.impl.DefaultImageReSizer;
 import in.srain.cube.util.CLog;
 import in.srain.cube.util.CubeDebug;
 
 /**
  * Created by srain on 8/19/14.
  */
-public class DemoDuiTangImageResizer extends DefaultImageResizer {
+public class DemoDuiTangImageReSizer extends DefaultImageReSizer {
 
 
-    private static DemoDuiTangImageResizer sInstance;
+    private static DemoDuiTangImageReSizer sInstance;
 
-    public static DemoDuiTangImageResizer getInstance() {
+    public static DemoDuiTangImageReSizer getInstance() {
         if (sInstance == null) {
-            sInstance = new DemoDuiTangImageResizer();
+            sInstance = new DemoDuiTangImageReSizer();
         }
         return sInstance;
     }

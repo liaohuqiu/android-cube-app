@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:padding="10dp">
+
+    <in.srain.cube.image.CubeImageView
+        android:id="@+id/image_rounded_image_view1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/cube_mints_f1f1f1" />
+
+    <in.srain.cube.image.CubeImageView
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/image_rounded_image_view2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/cube_mints_f1f1f1" />
+
+</LinearLayout>

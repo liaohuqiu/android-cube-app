@@ -23,7 +23,7 @@ public class StringSmallImageViewHolder extends ViewHolderBase<String> {
     public View createView(LayoutInflater inflater) {
         View v = inflater.inflate(R.layout.load_small_image_list_item, null);
         mImageView = (CubeImageView) v.findViewById(R.id.load_small_image_list_item_image_view);
-        mImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        mImageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         return v;
     }
 

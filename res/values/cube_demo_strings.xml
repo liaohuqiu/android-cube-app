@@ -15,6 +15,7 @@
     <string name="cube_demo_image_loader_management">Image Loader Management</string>
     <string name="cube_demo_customized_image_loader">Customized ImageLoader</string>
     <string name="cube_demo_customized_image_load_handler">Customized ImageLoadHandler</string>
+    <string name="cube_demo_rounded_image">Rounded Image</string>
 
     <string name="cube_demo_view_holder">How to Use ViewHolder</string>
     <string name="cube_demo_view_holder_top_class">as Top Class</string>

@@ -16,12 +16,18 @@ public class Images {
     }
 
     public static List<String> getImages() {
-        return Arrays.asList(Images.sTestImages);
+        return Arrays.asList(Images.imageUrls);
     }
+
+    private final static String[] imageUrls1 = new String[]{
+            "http://img4.duitang.com/uploads/blog/201311/04/20131104193715_NCexN.thumb.jpeg",
+            "http://cdn.duitang.com/uploads/blog/201401/07/20140107223310_LH3Uy.thumb.jpeg",
+            "http://img5.duitang.com/uploads/item/201405/09/20140509222156_kVexJ.thumb.jpeg",
+            "http://img5.duitang.com/uploads/item/201306/14/20130614185903_raNR3.thumb.jpeg",
+    };
 
     private final static String[] imageUrls = new String[]{
             "http://img4.duitang.com/uploads/blog/201311/04/20131104193715_NCexN.thumb.jpeg",
-            "http://img5.duitang.com/uploads/item/201408/09/20140809210610_iTSJx.thumb.jpeg",
             "http://cdn.duitang.com/uploads/blog/201401/07/20140107223310_LH3Uy.thumb.jpeg",
             "http://img5.duitang.com/uploads/item/201405/09/20140509222156_kVexJ.thumb.jpeg",
             "http://img5.duitang.com/uploads/item/201306/14/20130614185903_raNR3.thumb.jpeg",
