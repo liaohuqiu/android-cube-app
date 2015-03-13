@@ -2,7 +2,7 @@ import os
 vars = {
         'support_v4_version': 'r7',
         'clog_version': '1.0.2',
-        'ptr_lib_version': '1.0.8.1-SNAPSHOT',
+        'ptr_lib_version': '1.0.8.3-SNAPSHOT',
         'event_bus_version': '2.4.0',
         'cube_sdk_version': '1.0.44.16-SNAPSHOT',
         }
