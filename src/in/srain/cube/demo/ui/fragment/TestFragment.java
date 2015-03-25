@@ -22,14 +22,11 @@ public final class TestFragment extends Fragment {
     private ArrayList<String> mStringList = new ArrayList<String>();
 
     public static TestFragment newInstance(String content) {
-        TestFragment fragment = new TestFragment(content);
-        return fragment;
-    }
-
-    private TestFragment(String content) {
+        TestFragment fragment = new TestFragment();
         for (int i = 0; i < 20; i++) {
-            mStringList.add(content);
+            fragment.mStringList.add(content);
         }
+        return fragment;
     }
 
     @Override
@@ -38,12 +35,20 @@ public final class TestFragment extends Fragment {
         view.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
         ListView listView = (ListView) view.findViewById(R.id.lv_frg_pager_tab);
-        ListViewDataAdapter<String> listViewDataAdapter = new ListViewDataAdapter<String>(new ViewHolderCreator<String>() {
+
+        final ListViewDataAdapter<String> listViewDataAdapter = new ListViewDataAdapter<String>();
+
+        ViewHolderCreator<String> viewHolderCreator = new ViewHolderCreator<String>() {
             @Override
-            public ViewHolderBase<String> createViewHolder() {
+            public ViewHolderBase<String> createViewHolder(int position) {
+
+                // create different ViewHolder according the view type
+                int type = listViewDataAdapter.getItemViewType(position);
                 return new ViewHolder();
             }
-        });
+        };
+
+        listViewDataAdapter.setViewHolderCreator(viewHolderCreator);
 
         listView.setAdapter(listViewDataAdapter);
         listViewDataAdapter.getDataList().addAll(mStringList);
