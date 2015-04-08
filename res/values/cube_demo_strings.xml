@@ -45,4 +45,21 @@
 
     <string name="cube_demo_cache_manager_clear_cache">Clear Cache</string>
 
+    <string name="app_description">This is a sample application for the  Cube SDK.</string>
+    <string name="clear_cache_menu">Clear Caches</string>
+    <string name="clear_cache_complete_toast">Caches have been cleared</string>
+    <string name="imageview_description">Image Thumbnail</string>
+    <string name="no_network_connection_toast">No network connection found</string>
+    <string name="image_list_change">change layout</string>
+    <string name="base_title_return">Back</string>
+
+    <string name="next_dot">Next Dot</string>
+    <string name="demo_slider_banner_next_page">Next Page</string>
+    <string name="ptr_all_in_one">Pull to Refresh\n All in One</string>
+
+    <string name="demo_request_error_unknown">Request unknown error</string>
+    <string name="demo_request_error_input">Request url error</string>
+    <string name="demo_request_error_data_format">Data format error</string>
+    <string name="demo_request_error_network">Network error</string>
+
 </resources>

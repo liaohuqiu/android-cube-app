@@ -11,6 +11,7 @@ import in.srain.cube.demo.base.DemoTitleBaseFragment;
 import in.srain.cube.demo.data.ImageListItem;
 import in.srain.cube.demo.datamodel.ImageListDataModel;
 import in.srain.cube.demo.event.DemoSimpleEventHandler;
+import in.srain.cube.demo.event.ErrorMessageDataEvent;
 import in.srain.cube.demo.event.EventCenter;
 import in.srain.cube.demo.event.ImageListDataEvent;
 import in.srain.cube.demo.ui.viewholders.ImageListItemSmallImageViewHolder;
@@ -89,22 +90,27 @@ public class LoadMoreListViewFragment extends DemoTitleBaseFragment {
             }
         });
 
+        // process data
         EventCenter.bindContainerAndHandler(this, new DemoSimpleEventHandler() {
 
             public void onEvent(ImageListDataEvent event) {
+
+                // ptr
                 mPtrFrameLayout.refreshComplete();
+
+                // load more
+                loadMoreListViewContainer.loadMoreFinish(mDataModel.getListPageInfo().isEmpty(), mDataModel.getListPageInfo().hasMore());
+
+                mAdapter.notifyDataSetChanged();
+            }
+
+            public void onEvent(ErrorMessageDataEvent event) {
+                loadMoreListViewContainer.loadMoreError(0, event.message);
             }
 
         }).tryToRegisterIfNot();
 
-        mPtrFrameLayout.addPtrUIHandler(new PtrUIRefreshCompleteHandler() {
-            @Override
-            public void onUIRefreshComplete(PtrFrameLayout frame) {
-                loadMoreListViewContainer.loadMoreFinish(mDataModel.getListPageInfo().isEmpty(), mDataModel.getListPageInfo().hasMore());
-                mAdapter.notifyDataSetChanged();
-            }
-        });
-
+        // auto load data
         mPtrFrameLayout.postDelayed(new Runnable() {
             @Override
             public void run() {

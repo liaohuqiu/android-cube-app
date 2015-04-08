@@ -6,11 +6,14 @@ import in.srain.cube.Cube;
 import in.srain.cube.cache.CacheManagerFactory;
 import in.srain.cube.demo.BuildConfig;
 import in.srain.cube.demo.image.DemoDuiTangImageReSizer;
+import in.srain.cube.demo.request.DemoRequestProxy;
 import in.srain.cube.demo.utils.DemoEnv;
 import in.srain.cube.diskcache.lru.SimpleDiskLruCache;
 import in.srain.cube.image.ImageLoaderFactory;
 import in.srain.cube.image.impl.DefaultImageLoadHandler;
 import in.srain.cube.request.RequestCacheManager;
+import in.srain.cube.request.RequestManager;
+import in.srain.cube.request.RequestProxyFactory;
 import in.srain.cube.util.CLog;
 import in.srain.cube.util.CubeDebug;
 
@@ -48,6 +51,7 @@ public class CubeDemoApplication extends Application {
         initImageLoader();
 
         initRequestCache();
+        RequestManager.getInstance().setRequestProxyFactory(DemoRequestProxy.getInstance());
 
         // init local cache, just use default
         CacheManagerFactory.initDefaultCache(this, null, -1, -1);

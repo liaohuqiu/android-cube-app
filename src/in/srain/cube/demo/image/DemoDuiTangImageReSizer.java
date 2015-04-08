@@ -5,11 +5,7 @@ import in.srain.cube.image.impl.DefaultImageReSizer;
 import in.srain.cube.util.CLog;
 import in.srain.cube.util.CubeDebug;
 
-/**
- * Created by srain on 8/19/14.
- */
 public class DemoDuiTangImageReSizer extends DefaultImageReSizer {
-
 
     private static DemoDuiTangImageReSizer sInstance;
 

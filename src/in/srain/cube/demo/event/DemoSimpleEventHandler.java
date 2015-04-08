@@ -42,12 +42,10 @@ public class DemoSimpleEventHandler implements LifeCycleComponent {
 
     @Override
     public void onBecomesTotallyInvisible() {
-        tryToUnregister();
     }
 
     @Override
     public void onDestroy() {
-
+        tryToUnregister();
     }
-
 }

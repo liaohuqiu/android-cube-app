@@ -84,7 +84,6 @@ public class DemoRevertDataModel {
                 ImageListDataEvent imageListDataEvent = new ImageListDataEvent();
                 imageListDataEvent.imageList = imageList;
                 imageListDataEvent.hasMore = data.optBoolean("has_more");
-                imageListDataEvent.success = true;
                 return imageListDataEvent;
             }
 

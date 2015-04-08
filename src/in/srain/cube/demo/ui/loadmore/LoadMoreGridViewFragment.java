@@ -8,6 +8,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import in.srain.cube.demo.R;
 import in.srain.cube.demo.base.DemoTitleBaseFragment;
+import in.srain.cube.demo.event.ErrorMessageDataEvent;
 import in.srain.cube.demo.event.ImageListDataEvent;
 import in.srain.cube.demo.data.ImageListItem;
 import in.srain.cube.demo.datamodel.ImageListDataModel;
@@ -97,21 +98,27 @@ public class LoadMoreGridViewFragment extends DemoTitleBaseFragment {
             }
         });
 
+        // data
         EventCenter.bindContainerAndHandler(this, new DemoSimpleEventHandler() {
 
             public void onEvent(ImageListDataEvent event) {
+
+                // ptr refresh complete
                 mPtrFrameLayout.refreshComplete();
+
+                // load more complete
+                loadMoreContainer.loadMoreFinish(mDataModel.getListPageInfo().isEmpty(), mDataModel.getListPageInfo().hasMore());
+
+                mAdapter.notifyDataSetChanged();
+            }
+
+            public void onEvent(ErrorMessageDataEvent event) {
+                loadMoreContainer.loadMoreError(0, event.message);
             }
 
         }).tryToRegisterIfNot();
-        mPtrFrameLayout.addPtrUIHandler(new PtrUIRefreshCompleteHandler() {
-            @Override
-            public void onUIRefreshComplete(PtrFrameLayout frame) {
-                loadMoreContainer.loadMoreFinish(mDataModel.getListPageInfo().isEmpty(), mDataModel.getListPageInfo().hasMore());
-                mAdapter.notifyDataSetChanged();
-            }
-        });
 
+        // auto load data
         mPtrFrameLayout.postDelayed(new Runnable() {
             @Override
             public void run() {

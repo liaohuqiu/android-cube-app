@@ -34,7 +34,6 @@ public class ImageListDataModel extends PagedListDataModel<ImageListItem> {
                 }
 
                 ImageListDataEvent event = new ImageListDataEvent();
-                event.success = true;
                 event.imageList = imageList;
                 event.hasMore = data.optBoolean("has_more");
                 return event;
@@ -48,8 +47,7 @@ public class ImageListDataModel extends PagedListDataModel<ImageListItem> {
 
             @Override
             public void onRequestFail(FailData failData) {
-                ImageListDataEvent event = new ImageListDataEvent();
-                EventCenter.getInstance().post(event);
+                setRequestFail();
             }
         });
 
