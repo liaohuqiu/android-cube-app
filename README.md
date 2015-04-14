@@ -15,7 +15,7 @@
 
 *   support-v4, 版本: r7
 *   clog, 版本: 1.0.2, https://github.com/liaohuqiu/android-CLog
-*   cube-sdk, 版本: 1.0.44.31-SNAPSHOT, https://github.com/etao-open-source/cube-sdk
+*   cube-sdk, 版本: 1.0.44.33-SNAPSHOT, https://github.com/etao-open-source/cube-sdk
 *   ultra-pull-to-refresh, 版本: 1.0.9.1-SNAPSHOT, https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
 *   eventbus, 版本: 2.4.0, https://github.com/greenrobot/EventBus
 
