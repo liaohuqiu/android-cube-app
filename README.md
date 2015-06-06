@@ -1,3 +1,5 @@
+[![Android Gems](http://www.android-gems.com/badge/liaohuqiu/android-cube-app.svg)](http://www.android-gems.com/lib/liaohuqiu/android-cube-app)
+
 ##### 欢迎关注我
 
 Github: https://github.com/liaohuqiu
