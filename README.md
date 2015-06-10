@@ -48,6 +48,11 @@ blog: http://liaohuqiu.net
 
 *  ultra-ptr. https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh. ptr-lib文件夹，作为一个类库项目引入。
 
+
+**这里有一个Eclipse的版本：**
+  
+*  https://github.com/myjoybar/android-cube-app-for-eclipse
+
 注意： **请使用dev分支中最新的代码**
 
 ### 联系方式和问题建议
