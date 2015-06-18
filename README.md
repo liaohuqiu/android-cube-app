@@ -14,6 +14,9 @@ blog: http://liaohuqiu.net
 
 
 [![Build Status](https://travis-ci.org/liaohuqiu/android-cube-app.svg?branch=master)](https://travis-ci.org/liaohuqiu/android-cube-app)
+### 添加scrollview的加载更多功能
+        必须引用https://github.com/qs-lll/cube-sdk
+            更改cube- sdk 源码
 
 这个项目的目的是作为一个APP开发参考。
 
