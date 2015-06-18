@@ -26,6 +26,13 @@ public class LoadMoreHomeFragment extends DemoBlockMenuFragment {
                 getContext().pushFragmentToBackStack(LoadMoreGridViewFragment.class, null);
             }
         }));
+        itemInfos.add(newItemInfo(R.string.cube_demo_load_more_grid_view, "#4d90fe", new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                getContext().pushFragmentToBackStack(LoadMoreScrollViewFragment.class, null);
+            }
+        }));
     }
 
     @Override
